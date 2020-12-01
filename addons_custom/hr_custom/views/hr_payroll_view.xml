@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Bảng lương -->
+        <record id="hr_payroll_form_view" model="ir.ui.view">
+            <field name="name">Payroll</field>
+            <field name="model">hr.payroll</field>
+            <field name="arch" type="xml">
+                <form string="Payroll">
+                    <header>
+                        <field name="count_payslip" invisible="1"/>
+                        <button name="export_payroll" type="object" string="Export Payroll"/>
+                        <button name="import_payroll" type="object" string="Import Payroll"
+                                attrs="{'invisible':[('upload_file', '=', False),('state','!=','draft')]}"/>
+                        <button name="download_template" type="object" string="Download Template Payroll"/>
+                        <button name="action_calculate" type="object" states="draft"
+                                string="Calculate" class="oe_highlight"/>
+                        <button name="action_print" type="object" string="Print Payroll" attrs="{'invisible': [('state', '=', 'draft')]}"
+                                class="oe_highlight"/>
+                        <button name="action_sent_salary_emp" type="object" string="Send Salary" class="oe_highlight"
+                                attrs="{'invisible': [('state', 'in', ['draft','cal','wait'])]}" />
+                        <button name="action_hr_manager_confirm" type="object" string="Confirm" class="oe_highligh" states="cal" groups="res_permissions.group_manager_employee"/>
+                        <button name="action_admin_confirm" type="object" string="Confirm" class="oe_highligh" states="wait" groups="res_permissions.group_manager_all"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,cal,wait,approved"
+                               readonly="1"/>
+                    </header>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="December 2020 Monthly Timesheet" required="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_to" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="department_ids" options="{'no_create': True}">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <button name="get_employee" type="object" states="draft" class="oe_highlight"
+                                string="Get Employees"/>
+                    </group>
+                    <notebook>
+                        <page name="payroll" string="Payroll Detail">
+                            <field name="upload_file" filename="file_name"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="lines">
+                                <tree editable="1">
+                                    <field name="employee_id" required="1" options="{'no_create': True}"/>
+                                    <field name="department_id" required="1" options="{'no_create': True}"/>
+                                    <field name="open_date" required="1"/>
+                                    <field name="timesheet_line_id" required="1"
+                                           domain="[('employee_id','=',employee_id)]" options="{'no_create': True}"/>
+                                    <field name="contract_id" required="1" options="{'no_create': True}"
+                                           domain="[('employee_id','=',employee_id),('state','in',['open','pending'])]"/>
+                                    <field name="payslip_id" options="{'no_create': True}"/>
+                                    <field name="payslip_run_id" options="{'no_create': True}"/>
+                                    <!-- follow contract  -->
+                                    <field name="basic_contract" required="1"/>
+                                    <field name="allowance_fix_contract" required="1"/>
+                                    <field name="allowance_special_contract" required="1"/>
+                                    <field name="allowance_responsible_contract" required="1"/>
+                                    <field name="allowance_oil_contract" required="1"/>
+                                    <field name="allowance_phone_contract" required="1"/>
+                                    <field name="allowance_diligence_contract" required="1"/>
+                                    <field name="allowance_house_contract" required="1"/>
+                                    <field name="allowance_other_contract" required="1"/>
+                                    <field name="total_gross_contract" required="1" style="color: #40ff00;"/>
+                                    <!-- follow real  -->
+                                    <field name="basic_real" required="1"/>
+                                    <field name="holiday_pay" required="1"/>
+                                    <field name="allowance_fix_real" required="1"/>
+                                    <field name="allowance_special_real" required="1"/>
+                                    <field name="allowance_responsible_real" required="1"/>
+                                    <field name="allowance_oil_real" required="1"/>
+                                    <field name="allowance_phone_real" required="1"/>
+                                    <field name="allowance_diligence_real" required="1"/>
+                                    <field name="allowance_house_real" required="1"/>
+                                    <field name="allowance_other_real" required="1"/>
+                                    <field name="total_gross_real" required="1" style="color: #40ff00;"/>
+
+                                    <!-- tăng ca, làm đêm  -->
+                                    <field name="overtime_weekday_salary" required="1"/>
+                                    <field name="overtime_weekend_salary" required="1"/>
+                                    <field name="overtime_holiday_salary" required="1"/>
+<!--                                    <field name="allowance_shift_night" required="1"/>-->
+                                    <field name="total_overtime_salary" required="1" style="color: #40ff00;"/>
+
+                                    <!-- chi tra ho bhxh  -->
+                                    <field name="pay_for_social_insurance" required="1"/>
+                                    <field name="other_revenue" required="1"/>
+                                    <!--                                    total real month-->
+                                    <field name="total_gross_month" required="1" style="color: red"/>
+                                    <!-- deduction tax personal -->
+                                    <field name="sickness_by_social" required="1"/>
+                                    <field name="salary_overtime_night" required="1" invisible="1"/>
+                                    <field name="allowance_phone" required="1"/>
+                                    <field name="total_deduction_tax_personal" required="1" style="color: #40ff00;"/>
+                                    <!--     # Social Insurance -->
+                                    <field name="level_insurance" required="1"/>
+                                    <field name="total_insurance" required="1" style="color: #40ff00;"/>
+                                    <!--     # tax personal -->
+                                    <field name="number_person_dependant" required="1"/>
+                                    <field name="allowances_family" required="1"/>
+                                    <field name="gross_taxed_personal" required="1"/>
+                                    <field name="total_tax_personal" required="1" style="color: #40ff00;"/>
+
+                                    <!--     Deduction other -->
+                                    <field name="total_lunch" required="1"/>
+                                    <field name="total_mulct" required="1"/>
+                                    <field name="ded_other" required="1"/>
+                                    <field name="total_deduction" required="1" style="color: #40ff00;"/>
+
+                                    <!--     điều chỉnh hết TV -->
+<!--                                    <field name="total_end_trail" required="1"/>-->
+                                    <!--                                    # thực nhận-->
+                                    <field name="total_net" required="1" style="color: #40ff00;"/>
+                                    <field name="note"/>
+                                    <button name="action_print_line" type="object" string="Print Payroll"
+                                            class="oe_highlight"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="employee_id" required="1"/>
+                                        <field name="department_id" required="1"/>
+                                        <field name="open_date" required="1"/>
+                                        <field name="timesheet_line_id" required="1"/>
+                                        <field name="contract_id" required="1"/>
+                                        <field name="payslip_id"/>
+                                        <field name="payslip_run_id"/>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <!-- follow contract  -->
+                                            <field name="basic_contract" required="1"/>
+                                            <field name="allowance_fix_contract" required="1"/>
+                                            <field name="allowance_special_contract" required="1"/>
+                                            <field name="allowance_responsible_contract" required="1"/>
+                                            <field name="allowance_oil_contract" required="1"/>
+                                            <field name="allowance_phone_contract" required="1"/>
+                                            <field name="allowance_diligence_contract" required="1"/>
+                                            <field name="allowance_house_contract" required="1"/>
+                                            <field name="allowance_other_contract" required="1"/>
+                                            <field name="total_gross_contract" required="1"/>
+
+                                            <!-- tăng ca, làm đêm  -->
+                                            <field name="overtime_weekday_salary" required="1"/>
+                                            <field name="overtime_weekend_salary" required="1"/>
+                                            <field name="overtime_holiday_salary" required="1"/>
+                                            <field name="allowance_shift_night" required="1"/>
+                                            <field name="total_overtime_salary" required="1"/>
+
+                                            <!--     # Social Insurance -->
+                                            <field name="level_insurance" required="1"/>
+                                            <field name="total_insurance" required="1"/>
+                                            <!--     # tax personal -->
+                                            <field name="number_person_dependant" required="1"/>
+                                            <field name="gross_taxed_personal" required="1"/>
+                                            <field name="total_tax_personal" required="1"/>
+
+                                            <!--     Deduction other -->
+                                            <field name="total_lunch" required="1"/>
+                                            <field name="total_mulct" required="1"/>
+                                            <field name="ded_other" required="1"/>
+                                            <field name="total_deduction" required="1"/>
+
+                                            <!--     điều chỉnh hết TV -->
+                                            <field name="total_end_trail" required="1"/>
+                                        </group>
+                                        <group>
+                                            <!-- follow real  -->
+                                            <field name="basic_real" required="1"/>
+                                            <field name="holiday_pay" required="1"/>
+                                            <field name="allowance_fix_real" required="1"/>
+                                            <field name="allowance_special_real" required="1"/>
+                                            <field name="allowance_responsible_real" required="1"/>
+                                            <field name="allowance_oil_real" required="1"/>
+                                            <field name="allowance_phone_real" required="1"/>
+                                            <field name="allowance_diligence_real" required="1"/>
+                                            <field name="allowance_house_real" required="1"/>
+                                            <field name="allowance_other_real" required="1"/>
+                                            <field name="total_gross_real" required="1"/>
+                                            <!-- chi tra ho bhxh  -->
+                                            <field name="pay_for_social_insurance" required="1"/>
+                                            <field name="other_revenue" required="1"/>
+                                            <!--                                    total real month-->
+                                            <field name="total_gross_month" required="1"/>
+                                            <!-- deduction tax personal -->
+                                            <field name="sickness_by_social" required="1"/>
+                                            <field name="salary_overtime_night" required="1" invisible=""/>
+                                            <field name="allowance_phone" required="1"/>
+                                            <field name="total_deduction_tax_personal" required="1"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <!--                                    # thực nhận-->
+                                        <field name="total_net" required="1"/>
+                                        <field name="note" required="1"/>
+                                        <button name="action_print_line" type="object" string="Print Payroll"
+                                                class="oe_highlight"/>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="hr_payroll_tree_view" model="ir.ui.view">
+            <field name="name">Payroll</field>
+            <field name="model">hr.payroll</field>
+            <field name="arch" type="xml">
+                <tree string="Payroll">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_hr_payroll" model="ir.actions.act_window">
+            <field name="name">Payroll</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_payroll" parent="hr_payroll.menu_hr_payroll_root"
+                  action="action_hr_payroll" sequence="4"/>
+    </data>
+</odoo>

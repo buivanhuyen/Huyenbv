@@ -1,0 +1,389 @@
+<odoo>
+    <data>
+        <!-- Điểm bán hàng -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_point_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_therapist'),
+                   ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_scan_barcode.group_scan_barcode'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+        <!-- Điểm bán hàng / Màn hình điều khiển -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_pos_dashboard">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Đơn hàng -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_point_of_sale">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Đơn hàng/ Đơn hàng -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_point_ofsale">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Bán thẻ tiền -->
+        <record model="ir.ui.menu" id="izi_virtual_money.menu_point_of_sale_sell_vm">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Phân bổ doanh thu -->
+        <record model="ir.ui.menu" id="pos_revenue_allocation.menu_revenue_allocation">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Trạng thái công việc chung -->
+        <record model="ir.ui.menu" id="izi_manage_room.menu_dashboard_maintenance">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_therapist')])]"/>
+        </record>
+
+        <!-- Đổi dịch vụ -->
+        <record model="ir.ui.menu" id="izi_pos_exchange_service.menu_action_izi_pos_exchange_service">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Sử dụng dịch vụ -->
+        <record model="ir.ui.menu" id="izi_use_service_card.use_service_card_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Hủy dịch vụ -->
+        <record model="ir.ui.menu" id="pos_destroy_service.menu_action_izi_pos_destroy_service">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Phiên bán hàng -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_pos_session_all">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_leader_shop')])]"/>
+        </record>
+
+        <!-- Tra cứu tài khoản KH -->
+        <!--<record model="ir.ui.menu" id="izi_product_search_card.menu_action_izi_product_search_card">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>-->
+
+        <!-- Tra cứu thông tin KH -->
+        <!--<record model="ir.ui.menu" id="izi_product_search_card.menu_action_izi_product_search_card_default_user">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>-->
+
+        <!-- Nộp tiền -->
+        <record model="ir.ui.menu" id="izi_pos_money.izi_pos_money_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_leader_shop')])]"/>
+        </record>
+
+        <!-- Trạng thái giường -->
+        <record model="ir.ui.menu" id="izi_manage_room.menu_dashboard_room">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_receptionist')])]"/>
+        </record>
+
+        <!-- Lượt làm kỹ thuật viên -->
+        <record model="ir.ui.menu" id="pos_work_service_allocation.pos_work_service_allocation_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_doctor'), ref('izi_res_permissions.group_therapist')])]"/>
+        </record>
+
+        <!-- Quản lý thu chi -->
+        <record model="ir.ui.menu" id="cash_management.izi_menu_cash_management">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Quản lý tiền đặt cọc -->
+        <record model="ir.ui.menu" id="pos_customer_deposit.pos_customer_deposit_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_leader_shop')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Dịch vụ -->
+        <record model="ir.ui.menu" id="izi_pos_custom_backend.menu_point_of_sale_service">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_therapist'),
+                   ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_cashier'),
+                   ref('izi_scan_barcode.group_scan_barcode'),
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ quét barcode -->
+        <record model="ir.ui.menu" id="izi_scan_barcode.menu_scan_barcode_izi_service_card_using_line">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_scan_barcode.group_scan_barcode')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng -->
+        <record model="ir.ui.menu" id="izi_pos_custom_backend.izi_menu_res_partner_debt">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_receptionist'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / khách hàng -->
+        <record model="ir.ui.menu" id="izi_pos_custom_backend.res_partner_menu_pos">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / công nợ khách hàng -->
+        <record model="ir.ui.menu" id="izi_pos_custom_backend.izi_menu_res_partner_debt_debt">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / Đặt cọc & hoàn tiền -->
+        <record model="ir.ui.menu" id="pos_customer_deposit.pos_customer_deposit_line_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_leader_shop'),ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / Đánh giá các bộ phận -->
+        <record model="ir.ui.menu" id="izi_department_rate.menu_department_rate_line">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_receptionist')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / Hủy thanh toán công nợ -->
+        <record model="ir.ui.menu" id="izi_pos_refund_invoice_make_paymnet.refund_invoice_make_paymnet_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Khách hàng / Cập nhật tồn khách hàng
+        <record model="ir.ui.menu" id="stock_inventory_customer.menu_stock_inventory_customer_action">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_stock_keeper')])]"/>
+        </record>
+
+        &lt;!&ndash;Điểm bán hàng/ Khách hàng / Điều chỉnh tồn khách hàng&ndash;&gt;
+        <record model="ir.ui.menu" id="adjust_inventory_customer.menu_action_adjust_inventory_customer">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_stock_keeper')])]"/>
+        </record> -->
+
+        <!-- Điểm bán hàng/ Danh mục -->
+        <record model="ir.ui.menu" id="point_of_sale.pos_config_menu_catalog">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_leader_shop')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_point_rep">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_leader_shop')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Sales Details -->
+        <record model="ir.ui.menu" id="point_of_sale.menu_report_order_details">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo doanh thu -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_by_payment_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo sử dụng dịch vụ -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_use_service_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo phiên -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_by_payment_session_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo két tiền mặt -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_money_session_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Rpt Pos Revennua Allocation -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_pos_money_session_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo nhân viên làm dịch vụ -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_service_with_employee_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo nhân viên làm dịch vụ (Người dùng) -->
+        <!-- <record model="ir.ui.menu" id="pos_report_birt.rpt_service_with_employee_default_use_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_business_manager')])]"/>
+        </record> -->
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo doanh thu theo cơ sở -->
+        <!-- <record model="ir.ui.menu" id="pos_report_birt.rpt_by_payment_reveneu_menu"> -->
+            <!-- <field name="groups_id" -->
+                   <!-- eval="[(6,0,[ref('izi_res_permissions.group_revenue_accountant'), -->
+                   <!-- ref('izi_res_permissions.group_cashier')])]"/> -->
+        <!-- </record> -->
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo doanh thu chi tiết -->
+        <!-- <record model="ir.ui.menu" id="rpt_revenue.rpt_invoice_menu"> -->
+            <!-- <field name="groups_id" -->
+                   <!-- eval="[(6,0,[ref('izi_res_permissions.group_revenue_accountant')])]"/> -->
+        <!-- </record> -->
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo phân bổ doanh thu chi tiết -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_revenue_datil_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_leader_shop'),
+                   ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_therapist')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo phân bổ doanh thu tổng -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_revenue_sum_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[
+                   ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Doanh thu theo tháng -->
+        <!-- <record model="ir.ui.menu" id="pos_report_birt.report_revenue_by_month_menu"> -->
+            <!-- <field name="groups_id" -->
+                   <!-- eval="[(6,0,[ref('base.group_system'), -->
+                   <!-- ref('izi_res_permissions.group_chief_accountant')])]"/> -->
+        <!-- </record> -->
+
+        <!-- Điểm bán hàng/ Báo cáo / Sao kê khách hàng theo ngày -->
+        <record model="ir.ui.menu" id="pos_report_birt.report_statement_customer_by_date_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('izi_res_permissions.group_cashier'),
+                   ref('izi_res_permissions.group_receptionist')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo công nợ khách hàng -->
+        <!-- <record model="ir.ui.menu" id="pos_report_birt.rpt_cong_no_kh_menu"> -->
+            <!-- <field name="groups_id" -->
+                   <!-- eval="[(6,0,[ -->
+                   <!-- ref('izi_res_permissions.group_revenue_accountant')])]"/> -->
+        <!-- </record> -->
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo công nợ nhà cung cấp -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_cong_no_ncc_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Báo cáo / Báo cáo lấy dữ liệu import getfly -->
+        <record model="ir.ui.menu" id="pos_report_birt.rpt_product_order">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ POS CRM -->
+        <record model="ir.ui.menu" id="izi_pos_crm.menu_pos_crm">
+            <field name="groups_id" eval="[(6,0,[ref('izi_res_permissions.group_receptionist'),
+                ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ POS CRM / Tiếp đón khách hàng-->
+        <record model="ir.ui.menu" id="izi_pos_crm.menu_reception_customer">
+            <field name="groups_id" eval="[(6,0,[ref('izi_res_permissions.group_receptionist')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ POS CRM / Đường dẫn pipeline-->
+        <record model="ir.ui.menu" id="izi_pos_crm.menu_lead">
+            <field name="groups_id" eval="[(6,0,[ref('izi_res_permissions.group_receptionist'),
+                ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Hồ sơ trị liệu -->
+        <record model="ir.ui.menu" id="izi_therapy_record.izi_therapy_record_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Hồ sơ trị liệu / hồ sơ trị liệu-->
+        <record model="ir.ui.menu" id="izi_therapy_record.izi_therapy_record">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Hồ sơ trị liệu / Phiếu chỉ định -->
+        <record model="ir.ui.menu" id="izi_therapy_record.izi_therapy_prescription">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system'),
+                   ref('izi_res_permissions.group_doctor'),
+                   ref('izi_res_permissions.group_consultant'),
+                   ref('izi_res_permissions.group_cashier')])]"/>
+        </record>
+
+        <!-- Điểm bán hàng/ Hồ sơ trị liệu / Gói liệu trình -->
+        <record model="ir.ui.menu" id="izi_pos_bundle_therapy.izi_therapy_bundle">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system'),
+                   ref('izi_res_permissions.group_consultant')])]"/>
+        </record>
+    </data>
+</odoo>

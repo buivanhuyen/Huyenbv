@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Nhóm quyền tổng-->
+    <record model="ir.module.category" id="category_general">
+        <field name="name">General</field>
+    </record>
+    <!--Nhân viên-->
+
+    <record id="group_employee" model="res.groups">
+        <field name="name">Employee</field>
+        <!--        <field name="category_id" ref="res_permissions.category_general"/>-->
+    </record>
+
+    <!-- Trưởng phòng -->
+    <record id="group_leader_employee" model="res.groups">
+        <field name="name">Leader Employee</field>
+        <field name="implied_ids" eval="[(4, ref('res_permissions.group_employee'))]"/>
+        <!--        <field name="category_id" ref="res_permissions.category_general"/>-->
+    </record>
+
+    <!--Nhân sự -->
+    <record id="group_manager_employee" model="res.groups">
+        <field name="name">Hr Manager</field>
+        <field name="implied_ids" eval="[(4, ref('hr.group_hr_manager')),
+        (4, ref('res_permissions.group_leader_employee')),
+        (4, ref('hr_holidays.group_hr_holidays_manager')),
+        (4, ref('hr.group_hr_user')), ]"/>
+        <!--        <field name="category_id" ref="res_permissions.category_general"/>-->
+    </record>
+
+    <record id="group_manager_all" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="implied_ids" eval="[(4, ref('hr.group_hr_manager')),(4, ref('res_permissions.group_leader_employee')),
+        (4, ref('hr.group_hr_user')),
+        (4, ref('res_permissions.group_manager_employee'))]"/>
+        <!--        <field name="category_id" ref="res_permissions.category_general"/>-->
+    </record>
+
+
+</odoo>

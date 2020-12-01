@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_register_overtime_tree" model="ir.ui.view">
+            <field name="name">Register Overtime</field>
+            <field name="model">hr.register.overtime</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="hour_from"/>
+                    <field name="hour_to"/>
+                    <field name="state"/>
+                    <field name="description" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="hr_register_overtime_form" model="ir.ui.view">
+            <field name="name">Register Overtime</field>
+            <field name="model">hr.register.overtime</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="register_draft" string="Wait" type="object" states="approve"/>
+                        <button name="register_approve" string="Approve" type="object" states="draft" groups="res_permissions.group_manager_employee, res_permissions.group_leader_employee"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,approve" readonly="1"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="employee_id" options="{'no_create': True,'no_edit':True}"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="hour_from"/>
+                            <field name="hour_to"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="hr_register_overtime_act" model="ir.actions.act_window">
+            <field name="name">Register Overtime</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.register.overtime</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="hr_register_overtime_" name="Register Overtime" parent="hr_timesheet.menu_hr_time_tracking"
+                  action="hr_register_overtime_act"
+                  sequence="6"/>
+    </data>
+</odoo>

@@ -1,0 +1,90 @@
+<odoo>
+    <data>
+        <!-- Ngày nghỉ-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ / Tổng quan-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_dashboard">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee'),
+                   ])]"/>
+        </record>
+
+        <!--Ngày nghỉ/Nghỉ của tôi/Leave Request-->
+        <record model="ir.ui.menu" id="hr_holidays.hr_leave_menu_my">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee'),
+                   ])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Nghỉ của tôi/Allocations Request -->
+        <record model="ir.ui.menu" id="hr_holidays.menu_open_allocation">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee'),
+                   ])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_approvals">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Chờ duyệt-->
+        <record model="ir.ui.menu" id="hr_holidays.hr_holidays_menu_manager_approve">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Chờ duyệt/Cấp phát-->
+        <record model="ir.ui.menu" id="hr_holidays.hr_holidays_menu_manager_approve_allocations">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Chờ duyệt/Ngày nghỉ-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_open_department_leave_approve">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Tất cả-->
+        <record model="ir.ui.menu" id="hr_holidays.hr_holidays_menu_manager_all">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Tất cả/Ngày nghỉ-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_open_employee_leave">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Người quản lý/Tất cả/CẤp phát-->
+        <record model="ir.ui.menu" id="hr_holidays.hr_holidays_menu_manager_all_allocations">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!-- Ngày nghỉ/Cấu hình-->
+        <record model="ir.ui.menu" id="hr_holidays.menu_hr_holidays_configuration">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+    </data>
+</odoo>

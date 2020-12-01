@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_17,hr_17,model_hr_timesheet,base.group_user,1,1,1,1
+hr_18,hr_18,model_hr_timesheet_line,base.group_user,1,1,1,1
+hr_19,hr_19,model_hr_timesheet_line_summary,base.group_user,1,1,1,1
+hr_20,hr_20,model_hr_timesheet_line_overtime,base.group_user,1,1,1,1
+hr_21,hr_21,model_hr_timesheet_line_late,base.group_user,1,1,1,1
+hr_22,hr_22,model_hr_timesheet_line_leave,base.group_user,1,1,1,1
+hr_23,hr_23,model_hr_timesheet_generate_employee,base.group_user,1,1,1,1
+hr_1,hr_1,model_hr_management_lunch,,1,1,1,1
+hr_2,hr_2,model_hr_management_lunch_employee,,1,1,1,1
+hr_3,hr_3,model_hr_register_overtime,,1,1,1,1
+hr_4,hr_4,model_hr_management_constructor,,1,1,1,1
+hr_5,hr_5,model_hr_management_constructor_employee,,1,1,1,1
+hr_6,hr_6,model_hr_global_leaves,,1,1,1,1
+
+hr_10,hr_10,model_hr_payroll,,1,1,1,1
+hr_11,hr_11,model_hr_payroll_line,,1,1,1,1

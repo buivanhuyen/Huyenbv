@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--Cau hinh muc dong THUE TNCN -->
+        <record id="hr_income_tax_2018" model="hr.personal.income.tax.config">
+            <field name="name" eval="'Income Tax Vietnam '+time.strftime('%Y')"/>
+            <field name="active" eval="True"/>
+            <field name="date_from" eval="time.strftime('%Y-%m-%d')" />
+            <field name="personal_income_tax_limit" eval="9000000"/>
+            <field name="deduction_dependant_limit" eval="3600000"/>
+            <field name="state" eval="'active'"/>
+        </record>
+        <!-- Dinh nghia ti le dong thue suat -->
+        <record id="hr_person_income_tax_2018" model="hr.personal.income.tax.rate">
+            <field name="name" eval="'Personal Income Tax Vietnam '+time.strftime('%Y')"/>
+            <field name="active" eval="True"/>
+            <field name="date_from" eval="time.strftime('%Y-%m-%d')" />
+            <field name="state" eval="'active'"/>
+        </record>
+        <!-- Chi tiet ti le dong thue suat -->
+        <record id="hr_person_income_tax_line_2018_1" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="5000000" />
+            <field name="percent" eval="5"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_2" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="10000000" />
+            <field name="percent" eval="10"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_3" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="18000000" />
+            <field name="percent" eval="15"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_4" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="32000000" />
+            <field name="percent" eval="20"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_5" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="52000000" />
+            <field name="percent" eval="25"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_6" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="80000000" />
+            <field name="percent" eval="30"/>
+        </record>
+        <record id="hr_person_income_tax_line_2018_7" model="hr.personal.income.tax.line">
+            <field name="income_id" eval="hr_person_income_tax_2018"/>
+            <field name="amount" eval="10000000000000" />
+            <field name="percent" eval="35"/>
+        </record>
+
+    </data>
+</odoo>

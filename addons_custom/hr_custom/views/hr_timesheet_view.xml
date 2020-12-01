@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Cham cong -->
+        <record id="hr_timesheet_form_view" model="ir.ui.view">
+            <field name="name">Timesheet</field>
+            <field name="model">hr.timesheet</field>
+            <field name="arch" type="xml">
+                <form string="Timesheet">
+                    <header>
+                        <button name="action_generate_timesheet" type="object" states="draft"
+                                string="Generate Timesheet" class="oe_highlight"/>
+                        <button name="action_download" type="object" states="draft,calculate,wait"
+                                string="Download" class="oe_highlight"/>
+                        <button name="action_compute_timesheet" type="object" states="draft"
+                                string="Compute Timesheet" class="oe_highlight"/>
+                        <button name="action_sent_employee" type="object" states="calculate"
+                                string="Sent Employee" class="oe_highlight"/>
+                        <button name="action_confirm" type="object" states="wait"
+                                string="Confirm" class="oe_highlight"/>
+                        <button name="action_payslip" type="object" states="confirm"
+                                string="Generate Payslip" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,calculate,wait,confirm"
+                               readonly="1"/>
+                    </header>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_payroll"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('count_payroll', '=', 0)]}">
+                            <field name="count_payroll" widget="statinfo" string="Payroll"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="December 2020 Monthly Timesheet" required="True"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date_from" required="1"/>
+                            <field name="standard_timesheet_number" required="1"/>
+                        </group>
+                        <group>
+                            <field name="date_to" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="not_apply_employee_ids" options="{'no_create': True}">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <notebook>
+                        <page name="timsheet" string="Timesheet Employee">
+                            <field name="file_binary_name" invisible="True"/>
+                            <field name="file_binary" filename="file_binary_name"/>
+                            <button name="download_template" type="object" string="Download Import Template"
+                                    class="btn btn-link" style="text-decoration: underline;"
+                                    help="Mẫu import có định dạng là xls hoặc xlsx"/>
+                            <button type="object" name="action_import" string="Import"
+                                    class="oe_highlight"
+                                    attrs="{'invisible':[('file_binary', '=', False),('state','in',['draft','calculate','wait','confirm'])]}"/>
+
+                            <field name="lines">
+                                <tree editable="1">
+                                    <field name="employee_id" required="1"/>
+                                    <field name="department_id" required="1"/>
+                                    <field name="type" required="1"/>
+                                    <!-- timesheet  -->
+                                    <field name="standard_workday" required="1"/>
+                                    <field name="real_workday" required="1"/>
+                                    <!-- leave  -->
+                                    <field name="number_allow_leave" required="1"/>
+                                    <field name="number_holiday_leave" required="1"/>
+                                    <field name="number_policy_leave" required="1"/>
+                                    <field name="number_sick_leave" required="1"/>
+                                    <field name="number_maternity_leave" required="1"/>
+<!--                                    <field name="number_unpaid_leave" required="1"/>-->
+                                    <field name="number_unreasonal_leave" required="1"/>
+                                    <field name="late_early" required="1"/>
+
+                                    <!-- overtime  -->
+                                    <field name="hour_overtime_weekdays" required="1"/>
+                                    <field name="hour_overtime_weekend" required="1"/>
+                                    <field name="hour_overtime_holidays" required="1"/>
+
+                                    <!-- overtime  -->
+<!--                                    <field name="hour_overtime_shift3" required="1"/>-->
+                                    <field name="number_constructor" required="1"/>
+                                    <field name="number_lunch" required="1"/>
+
+                                </tree>
+                                <form>
+                                    <group>
+                                        <group>
+                                            <field name="employee_id"/>
+                                            <field name="type" required="1"/>
+                                            <field name="standard_workday" required="1"/>
+                                            <field name="real_workday" required="1"/>
+                                            <field name="hour_overtime_weekdays" required="1"/>
+                                            <field name="hour_overtime_weekend" required="1"/>
+                                            <field name="hour_overtime_holidays" required="1"/>
+                                            <field name="hour_overtime_shift3" required="1"/>
+                                            <field name="number_constructor" required="1"/>
+                                            <field name="number_lunch" required="1"/>
+                                        </group>
+                                        <group>
+                                            <field name="department_id"/>
+                                            <field name="number_allow_leave" required="1"/>
+                                            <field name="number_holiday_leave" required="1"/>
+                                            <field name="number_policy_leave" required="1"/>
+                                            <field name="number_sick_leave" required="1"/>
+                                            <field name="number_maternity_leave" required="1"/>
+<!--                                            <field name="number_unpaid_leave" required="1"/>-->
+                                            <field name="number_unreasonal_leave" required="1"/>
+                                        </group>
+                                    </group>
+
+                                    <notebook>
+                                        <page name="summary_line" string="Summary">
+                                            <field name="summaries">
+                                                <tree editable="1">
+                                                    <field name="employee_id"/>
+                                                    <field name="date"/>
+                                                    <field name="code"/>
+                                                    <field name="ref_id"/>
+                                                    <field name="time_in" widget="float_time"/>
+                                                    <field name="time_out" widget="float_time"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                        <page name="overtime_line" string="Overtimes">
+                                            <field name="overtimes">
+                                                <tree editable="1" default_order="type">
+                                                    <field name="employee_id"/>
+                                                    <field name="type"/>
+                                                    <field name="ref_id"/>
+                                                    <field name="date"/>
+                                                    <field name="hours" widget="float_time"/>
+                                                    <field name="seconds"/>
+                                                    <field name="time_in" widget="float_time"/>
+                                                    <field name="time_out" widget="float_time"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                        <page name="late_line" string="Late">
+                                            <field name="lates">
+                                                <tree editable="1" default_order="type">
+                                                    <field name="employee_id"/>
+                                                    <field name="type"/>
+                                                    <field name="ref_id"/>
+                                                    <field name="date"/>
+                                                    <field name="minutes" widget="float_time"/>
+                                                    <field name="time_in" widget="float_time"/>
+                                                    <field name="time_out" widget="float_time"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                        <page name="early_line" string="Early">
+                                            <field name="earlies">
+                                                <tree editable="1" default_order="type">
+                                                    <field name="employee_id"/>
+                                                    <field name="type"/>
+                                                    <field name="ref_id"/>
+                                                    <field name="date"/>
+                                                    <field name="minutes" widget="float_time"/>
+                                                    <field name="time_in" widget="float_time"/>
+                                                    <field name="time_out" widget="float_time"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                        <page name="leave_line" string="Leave">
+                                            <field name="leaves">
+                                                <tree editable="1"
+                                                      colors="decoration-danger:holiday_id is False and resource_leave_id is False">
+                                                    <field name="employee_id"/>
+                                                    <field name="date"/>
+                                                    <field name="holiday_id"/>
+                                                    <field name="resource_leave_id"/>
+                                                </tree>
+                                            </field>
+                                        </page>
+                                    </notebook>
+
+                                </form>
+                            </field>
+                        </page>
+                        <page invisible="1" name="summary" string="Summary">
+                            <field name="summaries">
+                                <tree editable="1">
+                                    <field name="employee_id"/>
+                                    <field name="date"/>
+                                    <field name="code"/>
+                                    <field name="ref_id"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page invisible="1" name="overtime" string="Overtimes">
+                            <field name="overtimes">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="hours" widget="float_time"/>
+                                    <field name="seconds"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page invisible="1" name="late" string="Late">
+                            <field name="lates">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="minutes" widget="float_time"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page invisible="1" name="early" string="Early">
+                            <field name="earlies">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="minutes" widget="float_time"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page invisible="1" name="leave" string="Leave">
+                            <field name="leaves">
+                                <tree editable="1"
+                                      colors="decoration-danger:holiday_id is False and resource_leave_id is False">
+                                    <field name="employee_id"/>
+                                    <field name="date"/>
+                                    <field name="holiday_id"/>
+                                    <field name="resource_leave_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="hr_timesheet_tree_view" model="ir.ui.view">
+            <field name="name">Timesheet</field>
+            <field name="model">hr.timesheet</field>
+            <field name="arch" type="xml">
+                <tree string="Timesheet">
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_hr_timesheet" model="ir.actions.act_window">
+            <field name="name">Timesheet</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.timesheet</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="menu_hr_timesheet" parent="hr_timesheet.menu_hr_time_tracking"
+                  action="action_hr_timesheet" sequence="1"/>
+
+        <!-- Chi tiet cham cong-->
+        <record id="hr_timesheet_line_form_view" model="ir.ui.view">
+            <field name="name">Timesheet</field>
+            <field name="model">hr.timesheet.line</field>
+            <field name="arch" type="xml">
+                <form create="false" delete="false" edit="false">
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="type" required="1"/>
+                            <field name="standard_workday" required="1"/>
+                            <field name="real_workday" required="1"/>
+                            <field name="hour_overtime_weekdays" required="1"/>
+                            <field name="hour_overtime_weekend" required="1"/>
+                            <field name="hour_overtime_holidays" required="1"/>
+                            <field name="hour_overtime_shift3" required="1"/>
+                            <field name="number_constructor" required="1"/>
+                            <field name="number_lunch" required="1"/>
+                        </group>
+                        <group>
+                            <field name="department_id"/>
+                            <field name="number_allow_leave" required="1"/>
+                            <field name="number_holiday_leave" required="1"/>
+                            <field name="number_policy_leave" required="1"/>
+                            <field name="number_sick_leave" required="1"/>
+                            <field name="number_maternity_leave" required="1"/>
+<!--                            <field name="number_unpaid_leave" required="1"/>-->
+                            <field name="number_unreasonal_leave" required="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="summary_line" string="Summary">
+                            <field name="summaries">
+                                <tree editable="1">
+                                    <field name="employee_id"/>
+                                    <field name="date"/>
+                                    <field name="code"/>
+                                    <field name="ref_id"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="overtime_line" string="Overtimes">
+                            <field name="overtimes">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="hours" widget="float_time"/>
+                                    <field name="seconds"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="late_line" string="Late">
+                            <field name="lates">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="minutes" widget="float_time"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="early_line" string="Early">
+                            <field name="earlies">
+                                <tree editable="1" default_order="type">
+                                    <field name="employee_id"/>
+                                    <field name="type"/>
+                                    <field name="ref_id"/>
+                                    <field name="date"/>
+                                    <field name="minutes" widget="float_time"/>
+                                    <field name="time_in" widget="float_time"/>
+                                    <field name="time_out" widget="float_time"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="leave_line" string="Leave">
+                            <field name="leaves">
+                                <tree editable="1"
+                                      colors="decoration-danger:holiday_id is False and resource_leave_id is False">
+                                    <field name="employee_id"/>
+                                    <field name="date"/>
+                                    <field name="holiday_id"/>
+                                    <field name="resource_leave_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="l10n_vi_hr_inherit_hr_attendance_view_form" model="ir.ui.view">
+            <field name="name">hr.attendance.form</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+            <field name="arch" type="xml">
+                <form position="replace">
+                    <form string="Employee attendances">
+                        <header>
+                            <button name="action_agree"
+                                    attrs="{'invisible':[('result_timekeeping','!=','yet_approved')]}" type="object" groups="res_permissions.group_leader_employee"
+                                    string="Approve" class="oe_highlight"/>
+                            <button name="action_degree"
+                                    attrs="{'invisible':[('result_timekeeping','!=','yet_approved')]}" type="object" groups="res_permissions.group_leader_employee"
+                                    string="Reject"/>
+                            <field name="state" widget="statusbar"
+                                   statusbar_visible="done" readonly="1"/>
+                        </header>
+                        <sheet>
+                            <group>
+                                <field name="employee_id"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="check_in"/>
+                                    <field name="hour_in" widget="float_time" readonly="1"/>
+                                    <field name="number_min_late" widget="float_time" readonly="1"/>
+<!--                                    <field name="shift_id"/>-->
+                                    <field name="shift_id" force_save="1" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="check_out"/>
+                                    <field name="hour_out" widget="float_time" readonly="1"/>
+                                    <field name="number_min_early" widget="float_time" readonly="1"/>
+                                </group>
+                            </group>
+                            <group attrs="{'invisible': [('state','=','done')]}">
+                                <group>
+                                    <field name="result_timekeeping" readonly="1"/>
+                                    <field name="reason_confirm" readonly="1"/>
+                                </group>
+                            </group>
+                        </sheet>
+                        <div class="oe_chatter">
+                            <field name="activity_ids" widget="mail_activity"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </form>
+                </form>
+            </field>
+        </record>
+
+        <record id="l10n_vi_hr_inherit_view_attendance_tree" model="ir.ui.view">
+            <field name="name">hr.attendance.tree</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+            <field name="arch" type="xml">
+                <tree position="replace" >
+                    <tree default_order="check_in desc"
+                          decoration-warning="state in ['late','early','late_and_early'] or result_timekeeping in ['late','early','late_and_early','yet_approved']"
+                          decoration-danger="result_timekeeping=='degree'"
+                          decoration-muted="result_timekeeping=='degree'" create="false"
+                    >
+                        <field name="employee_id"/>
+                        <field name="date"/>
+                        <field name="hour_in" widget="float_time"/>
+                        <field name="hour_out" widget="float_time"/>
+                        <field name="number_min_late" widget="float_time"/>
+                        <field name="number_min_early" widget="float_time"/>
+                        <field name="result_timekeeping"/>
+                        <field name="state"/>
+                    </tree>
+                </tree>
+            </field>
+        </record>
+        <record id="view_attendance_pivot" model="ir.ui.view">
+            <field name="name">view_attendance_pivot</field>
+            <field name="model">hr.attendance</field>
+            <field name="priority">5</field>
+            <field name="arch" type="xml">
+                <pivot string="Attendance Analysis">
+                    <field name="state" type="col"/>
+                    <field name="result_timekeeping" type="col"/>
+                    <field name="date" interval="month" type="row"/>
+                    <field name="result_timekeeping" type="count"/>
+                    <field name="state" type="count"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="report_view_attendance_pivot" model="ir.ui.view">
+            <field name="name">view_attendance_pivot</field>
+            <field name="model">hr.attendance</field>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <pivot string="Attendance Analysis">
+                    <field name="state" type="col"/>
+                    <field name="result_timekeeping" type="col"/>
+                    <field name="date" interval="month" type="row"/>
+                    <field name="result_timekeeping" type="count"/>
+                    <field name="state" type="count"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record model="ir.actions.act_window" id="action_hr_attendance_report">
+            <field name="name">Report Attendance</field>
+            <field name="res_model">hr.attendance</field>
+            <field name="view_mode">pivot</field>
+            <field name="domain">[('state','!=','done')]</field>
+            <field name="context">{'group_by':['state','result_timekeeping']}</field>
+            <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('report_view_attendance_pivot')})]"/>
+        </record>
+
+
+        <menuitem id="menu_hr_attendance_report" parent="hr_attendance.menu_hr_attendance_manage_attendances"
+                  action="action_hr_attendance_report" sequence="21"/>
+    </data>
+</odoo>

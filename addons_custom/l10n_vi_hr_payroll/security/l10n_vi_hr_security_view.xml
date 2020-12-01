@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.module.category" id="security_hr_contract">
+            <field name="name">Contract Hr Security</field>
+            <field name="description">Contract Hr Security</field>
+            <field name="sequence">26</field>
+        </record>
+
+        <record id="group_security_contract" model="res.groups">
+            <field name="name">Security Contract</field>
+            <field name="category_id" ref="l10n_vi_hr_payroll.security_hr_contract"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="hr_contract.hr_menu_contract" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('l10n_vi_hr_payroll.group_security_contract')])]"/>
+        </record>
+
+        <menuitem
+                id="hr_contract.hr_menu_contract"
+                name="Contracts"
+                action="hr_contract.action_hr_contract"
+                parent="hr.menu_hr_root"
+                sequence="4"
+                groups="l10n_vi_hr_payroll.group_security_contract"/>
+
+    </data>
+</odoo>

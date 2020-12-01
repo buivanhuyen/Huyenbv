@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="hr_employee_view_form_inherit" model="ir.ui.view">
+            <field name="name">hr.employee</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='hr_settings']"
+                       position="attributes">
+                    <attribute name="groups">res_permissions.group_manager_employee</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

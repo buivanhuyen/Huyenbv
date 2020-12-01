@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_attendance_confirmation_reason_form" model="ir.ui.view">
+            <field name="name">hr_attendance_confirmation_reason_form</field>
+            <field name="model">hr.attendance.confirmation.reason</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="attendance_id" invisible="1"/>
+                            <field name="type" invisible="1"/>
+                            <field name="reason" string="Reason Agree" required="1" placeholder="Reason Agree"
+                                   attrs="{'invisible':[('type','=','degree')]}"/>
+                            <field name="reason" string="Reason Degree" required="1" placeholder="Reason Degree"
+                                   attrs="{'invisible':[('type','=','agree')]}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button string="Confirm" class="oe_highlight" type="object" name="action_confirm"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="action_hr_attendance_confirmation_reason" model="ir.actions.act_window">
+            <field name="name">Attendance Confirmation Reason</field>
+            <field name="res_model">hr.attendance.confirmation.reason</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="hr_attendance_confirmation_reason_form"/>
+            <field name="domain">[]</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        <!--Thời gian biểu-->
+        <record model="ir.ui.menu" id="hr_timesheet.timesheet_menu_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công-->
+        <record model="ir.ui.menu" id="hr_timesheet.menu_hr_time_tracking">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Bảng chấm công-->
+        <record model="ir.ui.menu" id="hr_custom.menu_hr_timesheet">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Đăng ký làm thêm giờ-->
+        <record model="ir.ui.menu" id="hr_custom.hr_register_overtime_">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/quản lý ăn trưa-->
+<!--        <record model="ir.ui.menu" id="hr_custom.management_lunch">-->
+<!--            <field name="groups_id"-->
+<!--                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>-->
+<!--        </record>-->
+
+        <!--Thời gian biểu/Bảng chấm công/Quản lý đi công trình-->
+        <record model="ir.ui.menu" id="hr_custom.management_constructor">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Cấu hình chấm công-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_timesheet_config_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Cấu hình làm thêm-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_timesheet_overtime_config">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Cấu hình phạt đi muộn-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_timesheet_late_config">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+
+        <!--Thời gian biểu/Bảng chấm công/Cấu hình phạt về sớm-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_timesheet_early_config">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+
+        <!--Thời gian biểu/Báo cáo-->
+        <record model="ir.ui.menu" id="hr_timesheet.menu_timesheets_reports">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+
+        <!--Thời gian biểu/Báo cáo/Bảng chấm công có mặt-->
+        <record model="ir.ui.menu" id="hr_timesheet_attendance.menu_hr_timesheet_attendance_report">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee') ])]"/>
+        </record>
+    </data>
+</odoo>

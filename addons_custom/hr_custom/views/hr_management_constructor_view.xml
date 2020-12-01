@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="management_constructor_tree" model="ir.ui.view">
+            <field name="name">Management Constructor</field>
+            <field name="model">hr.management.constructor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="management_constructor_form" model="ir.ui.view">
+            <field name="name">Management Constructor</field>
+            <field name="model">hr.management.constructor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="validate_management_constructor_draft" string="Draft" type="object" states="confirm"/>
+                        <button name="validate_management_constructor_confirm" string="Confirm" type="object" states="draft"/>
+                        <button name="action_caculate" string="Caculate" type="object" states="draft"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm" readonly="1"/>
+                    </header>
+
+                    <group>
+                        <field name="name" required="1" attrs="{'readonly': [('state','!=','draft')]}"/>
+                        <field name="date_from" required="1" attrs="{'readonly': [('state','!=','draft')]}"/>
+                        <field name="date_to" required="1" attrs="{'readonly': [('state','!=','draft')]}"/>
+                    </group>
+                    <notebook>
+                        <page string="Management Constructor Employee">
+                            <field name="management_constructor_ids" attrs="{'readonly': [('state','!=','draft')]}">
+                                <tree editable="bottom">
+                                    <field name="employee_id"/>
+                                    <field name="number_constructor"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="management_constructor_act" model="ir.actions.act_window">
+            <field name="name">Management Constructor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.management.constructor</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="management_constructor" name="Management Constructor" parent="hr_timesheet.menu_hr_time_tracking"
+                  action="management_constructor_act"
+                  sequence="10"/>
+    </data>
+</odoo>

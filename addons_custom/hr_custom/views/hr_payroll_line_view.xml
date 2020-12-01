@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Bảng lương -->
+        <record id="hr_payroll_line_form_view" model="ir.ui.view">
+            <field name="name">Payroll Line</field>
+            <field name="model">hr.payroll.line</field>
+            <field name="arch" type="xml">
+                <form string="Payroll">
+                    <group>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <br></br>
+                            <div class="o_setting_right_pane">
+                                <h2>Thông tin cá nhân</h2>
+                                <div class="content-group mt16">
+                                    <div>
+                                        <label string="Nhân viên" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="employee_id" required="1"/>
+                                    </div>
+                                    <div>
+                                        <label string="Phòng ban" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="department_id" required="1"/>
+                                    </div>
+                                    <div>
+                                        <label string="Ngày vào làm việc" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="open_date" required="1"/>
+                                    </div>
+                                    <div>
+                                        <label string="Bảng chi tiết chấm công" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="timesheet_line_id" required="1"/>
+                                    </div>
+                                    <div>
+                                        <label string="Hợp đồng" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="contract_id" required="1"/>
+                                    </div>
+                                    <div>
+                                        <label string="Phiếu lương" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="payslip_id"/>
+                                    </div>
+                                    <div>
+                                        <label string="Bảng lương" for="iface_scan_via_proxy"
+                                               class="col-lg-3 o_light_label"/>
+                                        <field name="payslip_run_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </group>
+                    <group>
+                        <group>
+                            <div class="col-24 col-lg-12 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <h2>Lương và phụ cấp trên hợp đồng</h2>
+                                    <div class="content-group mt16">
+                                        <div>
+                                            <label string="Lương cơ bản theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="basic_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phụ cấp cố định theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_fix_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phụ cấp chuyên môn theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_special_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phụ cấp trách nhiệm theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_responsible_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Hỗ trợ xăng xe đi lại theo hợp đồng"
+                                                   for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_oil_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Hỗ trợ điện thoại theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_phone_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Hỗ trợ điện thoại theo hợp đồng" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_diligence_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Hỗ trợ nhà ở theo HĐ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_house_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phụ cấp khác theo HĐ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_other_contract" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng thu nhập theo HĐ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_gross_contract" required="1"/>
+                                        </div>
+                                        <br></br>
+                                        <h2>Lương cơ bản và các phụ cấp thực tế</h2>
+                                        <div class="content-group mt16">
+                                            <div>
+                                                <label string="Lương cơ bản" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="basic_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Lương ngày phép/lễ/chế độ" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="holiday_pay" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Phụ cấp cố định thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_fix_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Phụ cấp chuyên môn thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_special_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Phụ cấp trách nhiệm thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_responsible_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Hỗ trợ xăng xe/đi lại thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_oil_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Hỗ trợ điện thoại thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_phone_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Phụ trách chuyên cần thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_diligence_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Hỗ trợ nhà ở thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_house_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Phụ cấp khác thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_other_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Tổng lương và phụ cấp thực tế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="total_gross_real" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Chi trả hộ BHXH" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="pay_for_social_insurance" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Truy lĩnh/Khác" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="other_revenue" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Tổng thu nhập thực tế trong tháng"
+                                                       for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="total_gross_month" required="1"/>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <h2>Tổng thu nhập miễn thuế trong tháng</h2>
+                                        <div class="content-group mt16">
+                                            <div>
+                                                <label string="Tiền ốm đau trả bởi BHXH" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="sickness_by_social" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Lương tăng ca + Phụ cấp đêm" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="salary_overtime_night" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Hỗ trợ điện thoại" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="allowance_phone" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Tổng tiền miễn thuế" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="total_deduction_tax_personal" required="1"/>
+                                            </div>
+                                        </div>
+                                        <br></br>
+                                        <h2>Thực nhận</h2>
+                                        <div class="content-group mt16">
+                                            <div>
+                                                <label string="Thực nhận" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="total_net" required="1"/>
+                                            </div>
+                                            <div>
+                                                <label string="Ghi chú" for="iface_scan_via_proxy"
+                                                       class="col-lg-6 o_light_label"/>
+                                                <field name="note" required="1"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+
+                            <!-- follow contract  -->
+                            <div class="col-24 col-lg-12 o_setting_box">
+                                <div class="o_setting_right_pane">
+                                    <h2>Lương làm việc tăng ca, PC đêm</h2>
+                                    <div class="content-group mt16">
+                                        <div>
+                                            <label string="Tăng ca ngày thường" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="overtime_weekday_salary" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tăng ca ngày nghỉ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="overtime_weekend_salary" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tăng ca ngày lễ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="overtime_holiday_salary" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phụ cấp ca đêm" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="allowance_shift_night" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng tiền lương tăng ca +PC đêm"
+                                                   for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_overtime_salary" required="1"/>
+                                        </div>
+                                        <br></br>
+                                        <h2>Đóng BHXH</h2>
+                                        <div>
+                                            <label string="Mức đóng BHXH" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="level_insurance" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng tiền đóng BHXH" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_insurance" required="1"/>
+                                        </div>
+                                        <br></br>
+                                        <h2>Thuế TNCN</h2>
+                                        <div>
+                                            <label string="Số người phụ thuộc" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="number_person_dependant" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng thu nhập chịu thuế" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="gross_taxed_personal" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng thuế TNCN phải nộp" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_tax_personal" required="1"/>
+                                        </div>
+                                        <br></br>
+                                        <h2>Các khoản khấu trừ khác</h2>
+                                        <div>
+                                            <label string="Tiền cơm" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_lunch" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Phạt đi muộn về sớm" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_mulct" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Trừ khác" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="ded_other" required="1"/>
+                                        </div>
+                                        <div>
+                                            <label string="Tổng khấu trừ" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_deduction" required="1"/>
+                                        </div>
+                                        <br></br>
+                                        <h2>Điều chỉnh hết TV</h2>
+                                        <div>
+                                            <label string="Điều chỉnh hết thử việc" for="iface_scan_via_proxy"
+                                                   class="col-lg-6 o_light_label"/>
+                                            <field name="total_end_trail" required="1"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </group>
+                    </group>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_hr_payroll_line" model="ir.actions.act_window">
+            <field name="name">Payroll Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.payroll.line</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

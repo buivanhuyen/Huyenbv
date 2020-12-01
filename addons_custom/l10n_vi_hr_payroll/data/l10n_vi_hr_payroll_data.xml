@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- CONTRIBUTION REGISTERS -->
+        <!-- Co quan bao hiem -->
+        <record id="partner_vietnam_insurance" model="res.partner">
+            <field name="name">Vietnam Insurance</field>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+        </record>
+        <record id="contribute_register_vietnam_insurance" model="hr.contribution.register">
+            <field name="name">Contribute Register Vietnam Insurance</field>
+            <field name="note">Contribute Register Vietnam Insurance</field>
+            <field name="partner_id" ref="partner_vietnam_insurance"/>
+        </record>
+        <!-- Co quan thue -->
+        <record id="partner_general_department_taxion" model="res.partner">
+            <field name="name">General Department of Taxion</field>
+            <field name="supplier">1</field>
+            <field eval="0" name="customer"/>
+        </record>
+        <record id="contribute_register_vietnam_taxion" model="hr.contribution.register">
+            <field name="name">Contribute General Department of Taxion</field>
+            <field name="partner_id" ref="partner_general_department_taxion"/>
+        </record>
+        <!-- Dong gop cong ty -->
+        <record id="contribute_register_company" model="hr.contribution.register">
+            <field name="name">Contribute My Company</field>
+            <field name="partner_id" ref="base.main_partner"/>
+        </record>
+        <!-- Cau truc luong 2018 -->
+        <!-- HR SALARY RULES-->
+        <!-- Update Net = basic + alw - deb -->
+        <record id="hr_payroll.hr_rule_net" model="hr.salary.rule">
+            <field name="amount_python_compute">result = categories.BASIC + categories.ALW - categories.DED</field>
+            <field name="account_debit" ref="l10n_vn.chart6421"/>
+            <field name="account_credit" ref="l10n_vn.chart3341"/>
+        </record>
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- PHU CAP -->
+        <!-- Phu cap an trua-->
+        <record id="hr_rule_alw_lunch" model="hr.salary.rule">
+            <field name="name">Allowance Lunch</field>
+            <field name="sequence" eval="15"/>
+            <field name="code">ALW_LUNCH</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'ALW_LUNCH':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_alw_lunch_input" model="hr.rule.input">
+            <field name="name">Allowance Lunch Input</field>
+            <field name="code">ALW_LUNCH</field>
+            <field name="input_id" ref="hr_rule_alw_lunch"/>
+        </record>
+        <!-- Phu cap di lai, lien lac -->
+        <record id="hr_rule_alw_contact" model="hr.salary.rule">
+            <field name="name">Allowance Travel and Communication</field>
+            <field name="sequence" eval="16"/>
+            <field name="code">ALW_TRAVEL_COMM</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'ALW_TRAVEL_COMM':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_alw_contact_input" model="hr.rule.input">
+            <field name="name">Allowance Travel and Communication Input</field>
+            <field name="code">ALW_TRAVEL_COMM</field>
+            <field name="input_id" ref="hr_rule_alw_contact"/>
+        </record>
+        <!-- Phu cap nha o -->
+        <record id="hr_rule_alw_housing" model="hr.salary.rule">
+            <field name="name">Allowance Housing</field>
+            <field name="sequence" eval="17"/>
+            <field name="code">ALW_HOUSING</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'ALW_HOUSING':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_alw_housing_input" model="hr.rule.input">
+            <field name="name">Allowance Housing Input</field>
+            <field name="code">ALW_HOUSING</field>
+            <field name="input_id" ref="hr_rule_alw_housing"/>
+        </record>
+        <!-- Phu cap khac -->
+        <record id="hr_rule_alw_other" model="hr.salary.rule">
+            <field name="name">Allowance Other</field>
+            <field name="sequence" eval="18"/>
+            <field name="code">ALW_OTHER</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'ALW_OTHER':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_alw_other_input" model="hr.rule.input">
+            <field name="name">Allowance Other Input</field>
+            <field name="code">ALW_OTHER</field>
+            <field name="input_id" ref="hr_rule_alw_other"/>
+        </record>
+
+        <!-- LAM THEM GIO -->
+        <record id="hr_rule_alw_overtime" model="hr.salary.rule">
+            <field name="name">Overtime</field>
+            <field name="sequence" eval="19"/>
+            <field name="code">ALW_OVERTIME</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.worked_days_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+overtime = 0
+basic = contract.wage
+cc = contract.x_standard_work
+for line in payslip.worked_days_line_ids:
+    if line.code == 'ALW_OVERTIME':
+        overtime = line.number_of_hours
+    if line.code == 'WORK100':
+        cc = line.number_of_days
+if cc == 0:
+    cc = 26
+
+result = (basic * overtime)/ (cc * 8)
+            </field>
+        </record>
+
+        <!-- THUONG -->
+        <record id="hr_rule_alw_bonus" model="hr.salary.rule">
+            <field name="name">Allowance Bonus</field>
+            <field name="sequence" eval="20"/>
+            <field name="code">ALW_BONUS</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'ALW_BONUS':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_alw_bonus_input" model="hr.rule.input">
+            <field name="name">Allowance Bonus Input</field>
+            <field name="code">ALW_BONUS</field>
+            <field name="input_id" ref="hr_rule_alw_bonus"/>
+        </record>
+
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+        <!-- GIAM TRU -->
+
+        <!-- Thue TNCN -->
+        <!-- Thue TNCN -->
+        <!-- Thue TNCN -->
+        <!-- Thue TNCN -->
+        <!-- Thue TNCN -->
+        <record id="hr_rule_ded_income_tax" model="hr.salary.rule">
+            <field name="name">Deduction Income Tax</field>
+            <field name="sequence" eval="35"/>
+            <field name="code">DED_INCOME_TAX</field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3335"/>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'DED_INCOME_TAX':
+        total = line.amount
+        break
+result = total
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_taxion"/>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_ded_income_tax_input" model="hr.rule.input">
+            <field name="name">Deduction Income Tax Input</field>
+            <field name="code">DED_INCOME_TAX</field>
+            <field name="input_id" ref="hr_rule_ded_income_tax"/>
+        </record>
+
+        <!-- PHAT KHAC -->
+        <record id="hr_rule_ded_other" model="hr.salary.rule">
+            <field name="name">Deduction Other</field>
+            <field name="sequence" eval="37"/>
+            <field name="code">DED_OTHER</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'DED_OTHER':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_ded_other_input" model="hr.rule.input">
+            <field name="name">Deduction Other Input</field>
+            <field name="code">DED_OTHER</field>
+            <field name="input_id" ref="hr_rule_ded_other"/>
+        </record>
+        <!-- PHAT DI MUON -->
+        <record id="hr_rule_ded_later" model="hr.salary.rule">
+            <field name="name">Deduction Later</field>
+            <field name="sequence" eval="36"/>
+            <field name="code">DED_LATE</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'DED_LATE':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_ded_later_input" model="hr.rule.input">
+            <field name="name">Deduction Later Input</field>
+            <field name="code">DED_LATE</field>
+            <field name="input_id" ref="hr_rule_ded_later"/>
+        </record>
+        <!-- PHAT VE SOM -->
+        <record id="hr_rule_ded_early" model="hr.salary.rule">
+            <field name="name">Deduction Early</field>
+            <field name="sequence" eval="36"/>
+            <field name="code">DED_EARLY</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = payslip.input_line_ids</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'DED_EARLY':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <!--TODO Tao input tuong ung voi cau truc luong nay -->
+        <record id="hr_rule_ded_early_input" model="hr.rule.input">
+            <field name="name">Deduction Early Input</field>
+            <field name="code">DED_EARLY</field>
+            <field name="input_id" ref="hr_rule_ded_early"/>
+        </record>
+        <!-- BHXH NHAN VIEN DONG -->
+        <record id="hr_rule_ded_employee_social" model="hr.salary.rule">
+            <field name="name">Deduction Employee Social</field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3383"/>
+            <field name="sequence" eval="38"/>
+            <field name="code">DED_EMP_SOCIAL</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_employee_social
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+        </record>
+        <!-- BHYT NHAN VIEN DONG -->
+        <record id="hr_rule_ded_employee_medical" model="hr.salary.rule">
+            <field name="name">Deduction Employee Medical</field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3384"/>
+            <field name="sequence" eval="39"/>
+            <field name="code">DED_EMP_MEDICAL</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_employee_medical
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+        </record>
+        <!-- BHTN NHAN VIEN DONG -->
+        <record id="hr_rule_ded_employee_unemployee" model="hr.salary.rule">
+            <field name="name">Deduction Employee Social</field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3386"/>
+            <field name="sequence" eval="40"/>
+            <field name="code">DED_EMP_UNEMPLOYEE</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_employee_unemployment
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+        </record>
+
+        <!-- BHTNLD NHAN VIEN DONG -->
+        <record id="hr_rule_ded_employee_labor" model="hr.salary.rule">
+            <field name="name">Deduction Employee Labor Accidents</field>
+            <field name="sequence" eval="41"/>
+            <field name="code">DED_EMP_LABOR</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_employee_labor_accidents
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+        </record>
+
+
+        <!-- CONG TY DONG -->
+        <!-- CONG TY DONG -->
+        <!-- CONG TY DONG -->
+        <!-- CONG TY DONG -->
+        <!-- CONG TY DONG -->
+        <!-- CONG TY DONG -->
+        <!-- BHXH CTY DONG -->
+        <record id="hr_rule_ded_company_social" model="hr.salary.rule">
+            <field name="name">Deduction Company Social</field>
+            <field name="account_debit" ref="l10n_vn.chart6425"/>
+            <field name="account_credit" ref="l10n_vn.chart3383"/>
+            <field name="sequence" eval="42"/>
+            <field name="code">DED_COMP_SOCIAL</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_company_social
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+            <field name="appears_on_payslip" eval="False"/>
+        </record>
+        <!-- BHYT CTY DONG -->
+        <record id="hr_rule_ded_company_medical" model="hr.salary.rule">
+            <field name="name">Deduction Company Medical</field>
+            <field name="account_debit" ref="l10n_vn.chart6425"/>
+            <field name="account_credit" ref="l10n_vn.chart3384"/>
+            <field name="sequence" eval="43"/>
+            <field name="code">DED_COMP_MEDICAL</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_company_medical
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+            <field name="appears_on_payslip" eval="False"/>
+        </record>
+        <!-- BHTN CTY DONG -->
+        <record id="hr_rule_ded_company_unemployee" model="hr.salary.rule">
+            <field name="name">Deduction Company Unemployee</field>
+            <field name="account_debit" ref="l10n_vn.chart6425"/>
+            <field name="account_credit" ref="l10n_vn.chart3386"/>
+            <field name="sequence" eval="44"/>
+            <field name="code">DED_COMP_UNEMPLOYEE</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_company_unemployment
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+            <field name="appears_on_payslip" eval="False"/>
+        </record>
+
+        <!-- BHTNLD CTY DONG -->
+        <record id="hr_rule_ded_company_labor" model="hr.salary.rule">
+            <field name="name">Deduction Company Labor Accidents</field>
+            <field name="sequence" eval="45"/>
+            <field name="code">DED_COMP_LABOR</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+salary = contract.x_salary
+percent = contract.x_contribution_company_labor_accidents
+
+result = salary * percent/100
+            </field>
+            <field name="register_id" ref="contribute_register_vietnam_insurance"/>
+            <field name="appears_on_payslip" eval="False"/>
+        </record>
+
+        <!-- CAU TRUC LUONG 2018 -->
+        <record id="hr_payroll_salary_structure_2018" model="hr.payroll.structure">
+            <field name="code">BASIC.2018</field>
+            <field name="name">Vietnam Basic Structure 2018</field>
+            <field eval="[(6, 0, [
+            ref('hr_rule_alw_lunch'),
+            ref('hr_rule_alw_contact'),
+            ref('hr_rule_alw_housing'),
+            ref('hr_rule_alw_other'),
+            ref('hr_rule_alw_overtime'),
+            ref('hr_rule_alw_bonus'),
+            ref('hr_rule_ded_income_tax'),
+            ref('hr_rule_ded_later'),
+            ref('hr_rule_ded_early'),
+            ref('hr_rule_ded_other'),
+            ref('hr_rule_ded_employee_social'),
+            ref('hr_rule_ded_employee_medical'),
+            ref('hr_rule_ded_employee_unemployee'),
+            ref('hr_rule_ded_employee_labor'),
+            ref('hr_rule_ded_company_social'),
+            ref('hr_rule_ded_company_medical'),
+            ref('hr_rule_ded_company_unemployee'),
+            ref('hr_rule_ded_company_labor'),
+            ref('hr_payroll.hr_rule_basic'),
+            ref('hr_payroll.hr_rule_taxable'),
+            ref('hr_payroll.hr_rule_net'),
+
+        ])]" name="rule_ids"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+
+    </data>
+</odoo>

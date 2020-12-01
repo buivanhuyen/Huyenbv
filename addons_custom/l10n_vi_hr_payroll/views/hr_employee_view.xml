@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- EMPLOYEE -->
+        <record id="inherited_hr_employee_view_employee_form" model="ir.ui.view">
+            <field name="name">Employee</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_ids']"
+                       position="after">
+                    <group>
+                        <field name="x_code"/>
+                        <field name="x_code_company" required="1"/>
+                    </group>
+                </xpath>
+                <field name="country_of_birth" position="after">
+                    <field name="x_born"/>
+                    <field name="x_nation"/>
+                    <field name="x_religion"/>
+                </field>
+                <field name="bank_account_id" position="after">
+                    <field name="x_tax_code"/>
+                </field>
+                <xpath expr="//notebook//page//group//group//field[@name='work_phone']" position="after">
+                    <field name="x_start_date" required="1"/>
+                    <field name="x_end_date"/>
+                </xpath>
+                <field name="resource_calendar_id" position="replace">
+                    <field name="resource_calendar_id" required="1"/>
+                </field>
+                <xpath expr="//page//group//group//field[@name='resource_calendar_id']" position="after">
+                    <field name="x_trial_end_date"/>
+                </xpath>
+                <xpath expr="//page//group//group//field[@name='department_id']" position="after">
+                    <field name="x_rank" required="1"/>
+                </xpath>
+                <xpath expr="//page//group//group//field[@name='job_id']" position="replace">
+                    <label for="job_id"/>
+                    <div>
+                        <field name="job_id"/>
+                        <field name="x_main_job" placeholder="Main job..."/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='address_home_id']" position="after">
+                    <field name="x_level"/>
+                    <field name="x_school"/>
+                    <field name="x_speciality"/>
+                </xpath>
+                <xpath expr="//field[@name='identification_id']"
+                       position="after">
+                    <field name="x_date_range"/>
+                    <field name="x_address_range"/>
+                </xpath>
+                <xpath expr="//page[3]" position="after">
+                    <page string="Relative information">
+                        <field name="x_relative">
+                            <tree editable="bottom">
+                                <field name="name" required="1"/>
+                                <field name="work_phone"/>
+                                <field name="work_email"/>
+                                <field name="relationship"/>
+                                <field name="birthday"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!-- WORKING DAYS -->
+        <menuitem id="menu_resource_calendar_employee"
+                  parent="hr.menu_human_resources_configuration"
+                  action="resource.action_resource_calendar_form"
+                  sequence="10"/>
+        <!--Employee Left-->
+        <record id="hr_employee_archive_act" model="ir.actions.act_window">
+            <field name="name">Employee Archive</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('active','=',False)]</field>
+        </record>
+        <menuitem id="hr_employee_archive_menu" name="Employee leave off work" parent="hr.menu_hr_root"
+                  action="hr_employee_archive_act" sequence="99"/>
+
+        <!--Company -->
+        <record id="code_company_action" model="ir.actions.act_window">
+            <field name="name">Company</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.res.company</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="code_company_form" model="ir.ui.view">
+            <field name="name">Company Form</field>
+            <field name="model">hr.res.company</field>
+            <field name="arch" type="xml">
+                <form string="Code Company">
+                    <sheet>
+                        <group>
+                            <field name="code_company" required="1"/>
+                            <field name="name" required="1"/>
+                            <field name="sequence" readonly="1" force_save="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="code_company_tree" model="ir.ui.view">
+            <field name="name">Code Company Tree</field>
+            <field name="model">hr.res.company</field>
+            <field name="arch" type="xml">
+                <tree string="Code Company">
+                    <field name="code_company"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="code_company_menu" name="Company" parent="hr.menu_human_resources_configuration" action="code_company_action" sequence="99"/>
+
+        <!--Phan quyen nhin hop dong lao dong-->
+        <record id="hr_hr_employee_view_form10" model="ir.ui.view">
+            <field name="name">hr.hr.employee.view.form10</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2"/>
+            <field name="arch" type="xml">
+                <button name="%(hr_contract.act_hr_employee_2_hr_contract)d" position="attributes">
+                    <attribute name="groups">res_permissions.group_manager_employee</attribute>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>

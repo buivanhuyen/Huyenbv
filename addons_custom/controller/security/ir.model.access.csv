@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_izi_controller_izi_controller,izi_controller.izi_controller,model_izi_controller_izi_controller,,1,0,0,0

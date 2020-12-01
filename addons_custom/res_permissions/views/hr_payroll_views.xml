@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+        <!-- Bảng lương-->
+        <record model="ir.ui.menu" id="hr_payroll.menu_hr_payroll_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Bảng lương-->
+        <record model="ir.ui.menu" id="hr_custom.menu_hr_payroll">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+         <!--Bảng lương/Bảo hiểm-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_insurance_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+         <!--Bảng lương/Điều chỉnh mức đóng bảo hiểm-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_adjust_insurance_contribute">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Cấu hình bảo hiểm-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_insurance">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Thuế TNCN-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_income_tax_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Định nghĩa thuế suất TNCN-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_personal_income_tax">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Cấu hình đóng thuế TNCN-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_income_tax">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Bảng lương/Danh sách người phụ thuộc-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_payroll.menu_hr_dependant">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+    </data>
+</odoo>

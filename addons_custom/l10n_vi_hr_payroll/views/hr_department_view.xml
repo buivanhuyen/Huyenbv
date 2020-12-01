@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="inherited_hr_department_view_department_form" model="ir.ui.view">
+			<field name="name">hr.department.form</field>
+			<field name="model">hr.department</field>
+			<field name="inherit_id" ref="hr.view_department_form" />
+			<field name="arch" type="xml">
+				<field name="name" position="after">
+					<field name="x_code"/>
+				</field>
+				<field name="company_id" position="after">
+					<field name="x_notes"/>
+				</field>
+
+			</field>
+		</record>
+
+
+	</data>
+</odoo>

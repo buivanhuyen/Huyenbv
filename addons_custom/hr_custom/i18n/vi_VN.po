@@ -1,0 +1,1377 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* izi_hr_nesta_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-08 08:00+0000\n"
+"PO-Revision-Date: 2020-02-08 08:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Allow Leaves"
+msgstr "Cho phép nghỉ phép"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.contract_nesta_inherited_hr_contract_view_form
+msgid "Allowance"
+msgstr "Phụ cấp"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_diligence
+msgid "Allowance Diligence"
+msgstr "Phụ cấp chuyên cần"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_diligence_contract
+msgid "Allowance Diligence Contract"
+msgstr "Phụ trách chuyên cần theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_diligence_real
+msgid "Allowance Diligence Real"
+msgstr "Phụ trách chuyên cần thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_dwelling_house
+msgid "Allowance Dwelling House"
+msgstr "Phụ cấp nhà ở"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_fix_contract
+msgid "Allowance Fix Contract"
+msgstr "Phụ cấp cố định theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_fix_real
+msgid "Allowance Fix Real"
+msgstr "Phụ cấp cố định thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_house_contract
+msgid "Allowance House Contract"
+msgstr "Hỗ trợ nhà ở theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_house_real
+msgid "Allowance House Real"
+msgstr "Hỗ trợ nhà ở thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_oil_contract
+msgid "Allowance Oil Contract"
+msgstr "Hỗ trợ xăng xe/đi lại theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_oil_real
+msgid "Allowance Oil Real"
+msgstr "Hỗ trợ xăng xe/đi lại thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_other
+msgid "Allowance Other"
+msgstr "Phụ cấp khác"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_other_contract
+msgid "Allowance Other Contract"
+msgstr "Phụ cấp khác theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_other_real
+msgid "Allowance Other Real"
+msgstr "Phụ cấp khác thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_phone
+msgid "Allowance Phone"
+msgstr "Hỗ trợ điện thoại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_phone_contract
+msgid "Allowance Phone Contract"
+msgstr "Hỗ trợ điện thoại theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_phone_real
+msgid "Allowance Phone Real"
+msgstr "Hỗ trợ điện thoại thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_responsibility
+msgid "Allowance Responsibility"
+msgstr "Phụ cấp trách nhiệm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_responsible_contract
+msgid "Allowance Responsible Contract"
+msgstr "Phụ cấp trách nhiệm theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_responsible_real
+msgid "Allowance Responsible Real"
+msgstr "Phụ cấp trách nhiệm thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_shift_night
+msgid "Allowance Shift Night"
+msgstr "Phụ cấp ca đêm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_special_contract
+msgid "Allowance Special Contract"
+msgstr "Phụ cấp chuyên môn theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_special_real
+msgid "Allowance Special Real"
+msgstr "Phụ cấp chuyên môn thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_technique
+msgid "Allowance Technique"
+msgstr "Phụ cấp chuyên môn"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_telephone
+msgid "Allowance Telephone"
+msgstr "Phụ cấp điện thoại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_toxic
+msgid "Allowance Toxic"
+msgstr "Phụ cấp độc hại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_travel
+msgid "Allowance Travel"
+msgstr "Phụ cấp đi lại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_allowance_fix
+msgid "Allowance Fix"
+msgstr "Phụ cấp cố định"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowances_family
+msgid "allowances_family"
+msgstr "Giảm trừ gia cảnh"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.register.overtime,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_register_overtime_form
+msgid "Approve"
+msgstr "Duyệt"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+msgid "Approved"
+msgstr "Đã phê duyệt"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_insurance_unemployee
+msgid "BHTN"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_insurance_labor
+msgid "BHTNLD"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_insurance_social
+msgid "BHXH"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_insurance_medical
+msgid "BHYT"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__basic_contract
+msgid "Basic Contract"
+msgstr "Lương cơ bản theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__basic_real
+msgid "Basic Real"
+msgstr "Lương cơ bản thực tế"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Calculate"
+msgstr "Tính toán"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Create Payslip"
+msgstr "Tạo phiếu lương nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Export Payroll"
+msgstr "Xuất Excel bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Import Payroll"
+msgstr "Cập nhật đầu vào bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Send Approve"
+msgstr "Gửi phê duyệt"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Payroll"
+msgstr "Bảng lương"
+
+
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Approve"
+msgstr "Phê duyệt"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Download Template Payroll"
+msgstr "Tải cập nhật các đầu vào lương"
+
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Get Employees"
+msgstr "Lấy danh sách nhân viên"
+
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet,state:0
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_lunch_form
+msgid "Cancle"
+msgstr "Hủy"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_pay_social_insurance
+msgid "Chi trả hộ BHXH"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__code
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__code
+msgid "Code"
+msgstr "Mã"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Compute Timesheet"
+msgstr "Tính toán chấm công"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.management.constructor,state:0
+#: selection:hr.management.lunch,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_constructor_form
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_lunch_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__contract_id
+msgid "Contract"
+msgstr "Hợp đồng"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__create_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__create_uid
+msgid "Created by"
+msgstr "Được tạo bởi"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__create_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__create_date
+msgid "Created on"
+msgstr "Thời điểm tạo"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_total_ded
+msgid "Các khoản phải trừ"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__date
+msgid "Date"
+msgstr "Ngày tháng"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__date_from
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__date_from
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__date_from
+msgid "Date From"
+msgstr "Từ ngày"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__date_to
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__date_to
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__date_to
+msgid "Date To"
+msgstr "Đến ngày"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line.overtime,type:0
+msgid "Dayoff"
+msgstr "Ngày nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "December 2020 Monthly Timesheet"
+msgstr "Chấm công tháng 12/2020"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_lunch
+msgid "Deduction Lunch"
+msgstr "Tiền cơm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__ded_other
+msgid "Deduction Other"
+msgstr "Trừ khác"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__department_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__department_id
+msgid "Department"
+msgstr "Phòng/Ban"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__department_ids
+msgid "Departments"
+msgstr "Phòng ban"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__description
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__description
+msgid "Description"
+msgstr "Miêu tả"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__display_name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__display_name
+msgid "Display Name"
+msgstr "Tên hiển thị"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Download"
+msgstr "Tải xuống"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Download Import Template"
+msgstr "Tải mẫu"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.management.constructor,state:0
+#: selection:hr.management.lunch,state:0
+#: selection:hr.payroll,state:0
+#: selection:hr.register.overtime,state:0
+#: selection:hr.timesheet,state:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_constructor_form
+msgid "Draft"
+msgstr "Dự thảo"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__earlies
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__earlies
+msgid "Earlies"
+msgstr "Sớm"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line.late,type:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_line_form_view
+msgid "Early"
+msgstr "Về sớm"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line,type:0
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__employee_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__employee_id
+msgid "Employee"
+msgstr "Người lao động"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_contract
+msgid "Employee Contract"
+msgstr "Hợp đồng Nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__employee_ids
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_generate_employee_form_view
+msgid "Employees"
+msgstr "Nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__file_binary_name
+msgid "File Binary Name"
+msgstr "Tên tệp"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__date_from
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__date_from
+msgid "From Date"
+msgstr "Từ ngày"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_generate_employee_form_view
+msgid "Generate"
+msgstr "Tạo"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Generate Payslip"
+msgstr "Tạo phiếu lương"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Generate Timesheet"
+msgstr "Tạo chấm công"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule.category,name:izi_hr_nesta_custom.BHVN
+msgid "Giảm bảo hiểm"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.hr_global_leave_action
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_global_leaves
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__resource_leave_id
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.menu_hr_global_leave
+msgid "Global Leaves"
+msgstr "Nghỉ Toàn cục"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__gross_taxed_personal
+msgid "Gross Taxed Personal"
+msgstr "Thu nhập chịu thuế"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line.overtime,type:0
+msgid "Holiday"
+msgstr "Ngày lễ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__holiday_pay
+msgid "Holiday Pay"
+msgstr "Lương ngày phép/lễ/chế độ"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__holiday_id
+msgid "Holidays"
+msgstr "Ngày nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__hour_from
+msgid "Hour From"
+msgstr "Giờ vào"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__hour_to
+msgid "Hour To"
+msgstr "Giờ ra"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__hours
+msgid "Hours"
+msgstr "Giờ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__hour_overtime_holidays
+msgid "Hours Overtime Holidays"
+msgstr "Tăng ca ngày lễ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__hour_overtime_shift3
+msgid "Hours Overtime Shift3"
+msgstr "Số giờ làm ca đêm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__hour_overtime_weekdays
+msgid "Hours Overtime Weekdays"
+msgstr "Tăng ca ngày thường"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__hour_overtime_weekend
+msgid "Hours Overtime Weekends"
+msgstr "Tăng ca ngày nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__id
+msgid "ID"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Import"
+msgstr "Nhập"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime____last_update
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary____last_update
+msgid "Last Modified on"
+msgstr "Sửa lần cuối vào"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__write_uid
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__write_uid
+msgid "Last Updated by"
+msgstr "Cập nhật lần cuối bởi"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__write_date
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__write_date
+msgid "Last Updated on"
+msgstr "Cập nhật lần cuối vào"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line.late,type:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_line_form_view
+msgid "Late"
+msgstr "Đi muộn"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__lates
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__lates
+msgid "Lates"
+msgstr "Đi muộn"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_line_form_view
+msgid "Leave"
+msgstr "Nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_leave_type
+msgid "Leave Type"
+msgstr "Loại nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__leaves
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__leaves
+msgid "Leaves"
+msgstr "Ngày nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__level_insurance
+msgid "Level Insurance"
+msgstr "Mức đóng bảo hiểm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__lunch_id
+msgid "Lunch"
+msgstr "Ăn trưa"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__lunch_ids
+msgid "Lunch Employee"
+msgstr "Quản lý ăn trưa nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule.category,name:izi_hr_nesta_custom.OVERTIME
+msgid "Làm thêm giờ"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_real_contract
+msgid "Lương cơ bản theo hợp đồng"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule.category,name:izi_hr_nesta_custom.LTTTHD
+msgid "Lương thực tế theo hợp đồng"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_real_total
+msgid "Lương thực tế theo ngày công (LCB + Phụ cấp cố định)"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.management_constructor_act
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__management_constructor_ids
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__management_constructor_id
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.management_constructor
+msgid "Management Constructor"
+msgstr "Quản lý đi công trình"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_constructor_form
+msgid "Management Constructor Employee"
+msgstr "Quản lý đi công trình của nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.management_lunch_act
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_management_lunch
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__name
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.management_lunch
+msgid "Management Lunch"
+msgstr "Quản lý ăn trưa"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.management_lunch_form
+msgid "Management Lunch Employee"
+msgstr "Quản lý ăn trưa của nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Maternity"
+msgstr "Thai sản"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__minutes
+msgid "Minutes"
+msgstr "Tổng số phút"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_mulct
+msgid "Mulct Late, Early"
+msgstr "Phạt đi muộn, về sớm"
+
+#. module: izi_hr_nesta_custom
+#: code:addons/izi_hr_nesta_custom/models/hr_timesheet.py:927
+#, python-format
+msgid "Mã nhân viên '%s' ở cột %s dòng %s không tồn tại trong hệ thống. Vui lòng kiểm tra lại."
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Mẫu import có định dạng là xls hoặc xlsx"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_net
+msgid "NET"
+msgstr "Thực nhận"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_global_leaves__name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__name
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: izi_hr_nesta_custom
+#: code:addons/izi_hr_nesta_custom/models/hr_timesheet.py:955
+#, python-format
+msgid "Nhập sai loại hợp đồng của nhân viên '%s' ở cột %s dòng %s. Vui lòng kiểm tra lại."
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__not_apply_employee_ids
+msgid "Not Apply on Employees"
+msgstr "Không áp dụng chấm công với nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_allow_leave
+msgid "Number Allow Leave"
+msgstr "Nghỉ phép"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor_employee__number_constructor
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_constructor
+msgid "Number Constructor"
+msgstr "Số lần đi công trình"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_holiday_leave
+msgid "Number Holiday Leave"
+msgstr "Nghỉ lễ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch_employee__number_lunch
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_lunch
+msgid "Number Lunch"
+msgstr "Số bữa ăn trưa"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_maternity_leave
+msgid "Number Maternity Leave"
+msgstr "Nghỉ thai sản"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__number_person_dependant
+msgid "Number Person Dependant"
+msgstr "Số người phụ thuộc"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_policy_leave
+msgid "Number Policy Leave"
+msgstr "Nghỉ chế độ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_sick_leave
+msgid "Number Sick Leave"
+msgstr "Nghỉ ốm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_unpaid_leave
+msgid "Number Unpaid Leave"
+msgstr "Nghỉ không lương"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__number_unreasonal_leave
+msgid "Number Unreasonal Leave"
+msgstr "Nghỉ không lý do"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__open_date
+msgid "Open Date"
+msgstr "Ngày vào làm việc"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Other"
+msgstr "Khác"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__other_revenue
+msgid "Other Revenues"
+msgstr "Truy lĩnh/Khác"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line.overtime,type:0
+msgid "Overtime"
+msgstr "Làm thêm giờ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__salary_overtime_night
+msgid "Overtime Pay and Night Allowance"
+msgstr "Lương tăng ca + Phụ cấp đêm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__overtime_holiday_salary
+msgid "Overtime on holidays"
+msgstr "Tăng ca ngày lễ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__overtime_weekday_salary
+msgid "Overtime on weekdays"
+msgstr "Tăng ca ngày thường"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__overtime_weekend_salary
+msgid "Overtime on weekends"
+msgstr "Tăng ca cuối tuần"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__overtimes
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__overtimes
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_line_form_view
+msgid "Overtimes"
+msgstr "Làm thêm giờ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__pay_for_social_insurance
+msgid "Pay for Social Insurance"
+msgstr "Chi trả hộ BHXH"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.action_hr_payroll
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_payroll
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__lines
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__payroll_id
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.menu_hr_payroll
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_tree_view
+msgid "Payroll"
+msgstr "Bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_payroll_form_view
+msgid "Payroll Detail"
+msgstr "Chi tiết bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_payroll_line
+msgid "Payroll Line"
+msgstr "Chi tiết bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: code:addons/izi_hr_nesta_custom/models/hr_timesheet.py:878
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__payslip_id
+#, python-format
+msgid "Payslip"
+msgstr "Phiếu lương"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__payslip_run_id
+msgid "Payslip Run"
+msgstr "Bảng lương"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_allowance_shift_third
+msgid "Phụ cấp ca 3"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_allowance_constructor
+msgid "Phụ cấp công trình"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_fix_allowance_contract
+msgid "Phụ cấp cố định theo hợp đồng"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.inherited_edit_holiday_status_form
+msgid "Policy Leaves"
+msgstr "Nghỉ chế độ"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet.line,type:0
+msgid "Probation"
+msgstr "Thử việc"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_ratio_toxic
+msgid "Ratio for Allowance Toxic"
+msgstr "Tỉ lệ trả trợ cấp độc hại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_contract__x_ratio_travel
+msgid "Ratio for Allowance Travel"
+msgstr "Tỉ lệ trả trợ cấp đi lại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__real_workday
+msgid "Real Workday"
+msgstr "Thời gian thực tế đi làm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__ref_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__ref_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__ref_id
+msgid "Reference"
+msgstr "Tham chiếu"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.hr_register_overtime_act
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_register_overtime
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.hr_register_overtime_
+msgid "Register Overtime"
+msgstr "Đăng ký làm thêm giờ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__seconds
+msgid "Seconds"
+msgstr "Giây"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Sent Employee"
+msgstr "Gửi nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Sick Leaves"
+msgstr "Nghỉ ốm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__sickness_by_social
+msgid "Sickness paid by Social Insurance"
+msgstr "Tiền ốm đau trả bởi BHXH"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__standard_timesheet_number
+msgid "Standard Timesheet Number"
+msgstr "Giờ công chuẩn"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__standard_workday
+msgid "Standard Workday"
+msgstr "Ngày làm việc tiêu chuẩn"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_constructor__state
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_management_lunch__state
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__state
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_register_overtime__state
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__state
+msgid "State"
+msgstr "Trạng thái"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__summaries
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__summaries
+msgid "Summaries"
+msgstr "Tổng hợp"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_line_form_view
+msgid "Summary"
+msgstr "Tổng hợp"
+
+#. module: izi_hr_nesta_custom
+#: code:addons/izi_hr_nesta_custom/models/hr_timesheet.py:975
+#, python-format
+msgid "Tham số truyền vào ở dòng %s không đúng định dạng. Vui lòng kiểm tra lại."
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_generate_employee_form_view
+msgid "This wizard will generate adjusts for all selected employee(s) based on the dates and credit note specified on Adjusts Run"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_tax_personal
+msgid "Thuế TNCN( tạm tính)"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_total_overtime
+msgid "Thành tiền tăng ca (đã quy đổi)"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__time_in
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__time_in
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__time_in
+msgid "Time In"
+msgstr "Giờ vào"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__time_out
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__time_out
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__time_out
+msgid "Time Out"
+msgstr "Giờ ra"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.action_hr_timesheet
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_generate_employee__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__timesheet_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__timesheet_id
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.menu_hr_timesheet
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_tree_view
+msgid "Timesheet"
+msgstr "Bảng chấm công"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_form_view
+msgid "Timesheet Employee"
+msgstr "Bảng chấm công"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_line_late
+msgid "Timesheet Employee Late"
+msgstr "Chấm công đi muộn nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_line_leave
+msgid "Timesheet Employee Leave"
+msgstr "Chấm công nghỉ phép nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_line_overtime
+msgid "Timesheet Employee Overtime"
+msgstr "Chấm công làm thêm nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_line_summary
+msgid "Timesheet Employee Summary"
+msgstr "Bảng chấm công tổng nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__lines
+msgid "Timesheet Employees"
+msgstr "Chấm công nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.action_hr_timesheet_generate_employee
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_timesheet_generate_employee_form_view
+msgid "Timesheet Generate Employee"
+msgstr "Tạo điều chỉnh chấm công nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__timesheet_line_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__timesheet_line_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_leave__timesheet_line_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__timesheet_line_id
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_summary__timesheet_line_id
+msgid "Timesheet Line"
+msgstr "Bảng chi tiết chấm công"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_line
+msgid "Timsheet Employee"
+msgstr "Chấm công nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll__date_to
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__date_to
+msgid "To Date"
+msgstr "Đến ngày"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_deduction
+msgid "Total Deduction Other"
+msgstr "Tổng khấu trừ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__advance_payment
+msgid "Advance Payment"
+msgstr "Tạm ứng"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__allowance_constructor_real
+msgid "Allowance Constructor"
+msgstr "Phụ cấp công trình"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_deduction_tax_personal
+msgid "Total Deduction Tax Personal"
+msgstr "Tổng tiền miễn thuế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_end_trail
+msgid "Total End Trail"
+msgstr "Điều chỉnh hết thử việc"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_gross_contract
+msgid "Total Gross Contract"
+msgstr "Tổng thu nhập theo HĐ"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_gross_month
+msgid "Total Gross Month"
+msgstr "Tổng thu nhập thực tế trong tháng"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_gross_real
+msgid "Total Gross Real"
+msgstr "Tổng lương và phụ cấp thực tế"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_insurance
+msgid "Total Insurance"
+msgstr "Tổng tiền đóng BHXH"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_overtime_salary
+msgid "Total Overtime Salary"
+msgstr "Tổng tiền lương tăng ca,PC đêm"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_payroll_line__total_tax_personal
+msgid "Total Tax Personal"
+msgstr "Tổng thuế TNCN phải nộp"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_allowance_other
+msgid "Truy lĩnh/ Hỗ trợ khác"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_insurance
+msgid "Trừ BHXH (10.5%)"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_lunch
+msgid "Trừ cơm"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line__type
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_late__type
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet_line_overtime__type
+msgid "Type"
+msgstr "Loại"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_leave_type__x_type
+msgid "Type Leaves"
+msgstr "Loại nghỉ"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_advance_payment
+msgid "Tạm ứng"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule.category,name:izi_hr_nesta_custom.TTDED
+msgid "Tổng giảm trừ"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_total_gross
+msgid "Tổng thu nhập thực tế trong tháng"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_total_net
+msgid "Tổng thực lĩnh"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_basic_total_policy
+msgid "Tổng tiền lễ + phép + chế độ"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Unpaid Leaves"
+msgstr "Nghỉ không lương"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.leave.type,x_type:0
+msgid "Unreasonal Leaves"
+msgstr "Nghỉ không lí do"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_timesheet__file_binary
+msgid "Upload File"
+msgstr "Chọn tệp"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.hr_register_overtime_form
+msgid "Wait"
+msgstr "Chờ phê duyệt"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.payroll,state:0
+msgid "Wait Approve"
+msgstr "Chờ phê duyệt"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.timesheet,state:0
+msgid "Wait Confirm"
+msgstr "Chờ xác nhận"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_management_constructor
+msgid "hr.management.constructor"
+msgstr "Quản lý đi công trình"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_management_constructor_employee
+msgid "hr.management.constructor.employee"
+msgstr "Quản lý đi công trình NV"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_management_lunch_employee
+msgid "hr.management.lunch.employee"
+msgstr "Quản lý ăn trưa nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model,name:izi_hr_nesta_custom.model_hr_timesheet_generate_employee
+msgid "hr.timesheet.generate.employee"
+msgstr "Quản lý chấm công nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:hr.salary.rule,name:izi_hr_nesta_custom.hr_rule_deduction_late
+msgid "Đi muộn"
+msgstr ""
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.constructor_form
+msgid "Draft"
+msgstr "Quay về nháp"
+
+#. module: izi_hr_nesta_custom
+#: model_terms:ir.ui.view,arch_db:izi_hr_nesta_custom.constructor_form
+msgid "Confirm"
+msgstr "Xác nhận"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_constructor__employee_id
+msgid "Employee"
+msgstr "Nhân viên"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_constructor__date_from
+msgid "Date From"
+msgstr "Từ ngày"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_constructor__date_to
+msgid "Date To"
+msgstr "Đến ngày"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.model.fields,field_description:izi_hr_nesta_custom.field_hr_constructor__description
+msgid "Description"
+msgstr "Miêu tả"
+
+#. module: izi_hr_nesta_custom
+#: model:ir.actions.act_window,name:izi_hr_nesta_custom.constructor_act
+#: model:ir.ui.menu,name:izi_hr_nesta_custom.menu_constructor
+msgid "Constructor"
+msgstr "Xin đi công tác"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.constructor,state:0
+msgid "Draft"
+msgstr "Dự thảo"
+
+#. module: izi_hr_nesta_custom
+#: selection:hr.constructor,state:0
+msgid "Confirm"
+msgstr "Xác nhận"

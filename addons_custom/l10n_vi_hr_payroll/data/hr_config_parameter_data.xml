@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="category_default_hr_employee" model="ir.config_parameter">
+            <field name="name">Category Default Employee</field>
+            <field name="key">l10n_vi_hr_payroll.category_default</field>
+            <field name="value">1</field>
+        </record>
+        <record id="code_company_default_hr_employee" model="ir.config_parameter">
+            <field name="name">Company Default Employee</field>
+            <field name="key">l10n_vi_hr_payroll.code_company_default</field>
+            <field name="value">2</field>
+        </record>
+        <record id="work_location_default_hr_employee" model="ir.config_parameter">
+            <field name="name">Work Location Default Employee</field>
+            <field name="key">l10n_vi_hr_payroll.work_location_company_default</field>
+            <field name="value">Nhà máy NTPN</field>
+        </record>
+        <record id="work_phone_default_hr_employee" model="ir.config_parameter">
+            <field name="name">Work Phone Default Employee</field>
+            <field name="key">l10n_vi_hr_payroll.work_phone_default_hr_employee</field>
+            <field name="value">032302930</field>
+        </record>
+        <record id="manager_default_hr_employee" model="ir.config_parameter">
+            <field name="name">Manager Default Employee</field>
+            <field name="key">l10n_vi_hr_payroll.manager_default_hr_employee</field>
+            <field name="value">112</field>
+        </record>
+
+
+
+    </data>
+</odoo>

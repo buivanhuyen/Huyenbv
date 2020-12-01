@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+t01,hr_shift,model_hr_shift,,1,1,1,1
+t02,hr_shift_work_management,model_hr_shift_work_management,,1,1,1,1
+t05,hr_shift_employee_change,model_hr_shift_employee_change,,1,1,1,1
+t03,hr_shift_employee,model_hr_shift_employee,,1,1,1,1
+t04,hr_attendance_confirmation_reason,model_hr_attendance_confirmation_reason,,1,1,1,1
+t04,hr_attendance_confirmation_reason,model_hr_timesheet_late_early,,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="l10n_vi_hr_inherit_view_employee_form" model="ir.ui.view">
+            <field name="name">l10n_vi_hr_inherit_view_employee_form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="resource_calendar_id" position="replace">
+                    <field name="x_is_shift"/>
+                    <field name="x_shift_id"
+                           attrs="{'required': [('x_is_shift','=',False)]}"/>
+                    <field name="resource_calendar_id" required="True"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,122 @@
+<odoo>
+    <data>
+        <!-- CRM -->
+        <record model="ir.ui.menu" id="crm.crm_menu_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager'),
+                   ref('izi_res_permissions.group_social_network_administrator'),
+                   ref('izi_res_permissions.group_leader_social_network_administrator'),
+                   ref('izi_res_permissions.group_leader_telesales'),
+                   ref('izi_res_permissions.group_telesales')])]"/>
+        </record>
+
+        <!-- CRM / Đặt hẹn -->
+        <record model="ir.ui.menu" id="izi_crm_booking.menu_service_booking">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_leader_telesales'),
+                   ref('izi_res_permissions.group_telesales'),
+                   ref('izi_res_permissions.group_social_network_administrator'),
+                   ref('izi_res_permissions.group_leader_social_network_administrator'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Khách hàng -->
+        <record model="ir.ui.menu" id="res_partner_custom.customer_root_main_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Khách hàng / Khách hàng -->
+        <record model="ir.ui.menu" id="res_partner_custom.customer_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Khách hàng / Nguồn khách hàng -->
+        <record model="ir.ui.menu" id="res_partner_custom.source_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Quản lý khiếu nại -->
+        <record model="ir.ui.menu" id="izi_crm_claim.crm_claim_main_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Quản lý khiếu nại / Khiếu nại -->
+        <record model="ir.ui.menu" id="izi_crm_claim.crm_claim_main_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Quản lý khiếu nại / Loại khiếu nại -->
+        <record model="ir.ui.menu" id="izi_crm_claim.crm_claim_type_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_leader_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Quản lý khiếu nại / Báo cáo khiếu nại -->
+        <record model="ir.ui.menu" id="izi_crm_claim.crm_claim_report_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_leader_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Tương tác khách hàng -->
+        <record model="ir.ui.menu" id="izi_crm_interaction.partner_interaction_main_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Tương tác khách hàng / Tương tác khách hàng -->
+        <record model="ir.ui.menu" id="izi_crm_interaction.partner_interaction_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- CRM / Tương tác khách hàng / Lịch nhắc -->
+        <record model="ir.ui.menu" id="izi_crm_interaction.activity_history_menu">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('sales_team.group_sale_salesman'),
+                   ref('izi_res_permissions.group_customer_care'),
+                   ref('sales_team.group_sale_manager')])]"/>
+        </record>
+
+        <!-- Đường dẫn pipeline/ Báo giá -->
+        <record model="ir.ui.menu" id="sale_crm.sale_order_menu_quotations_crm">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system'),
+                   ref('izi_res_permissions.group_social_network_administrator'),
+                   ref('izi_res_permissions.group_leader_social_network_administrator'),
+                   ref('izi_res_permissions.group_leader_telesales'),
+                   ref('izi_res_permissions.group_telesales')])]"/>
+        </record>
+
+        <!-- Khách hàng -->
+        <record model="ir.ui.menu" id="crm.res_partner_menu_crm">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('base.group_system')])]"/>
+        </record>
+    </data>
+</odoo>

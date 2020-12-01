@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Tao dieu chinh hang loat-->
+        <record id="hr_timesheet_generate_employee_form_view" model="ir.ui.view">
+            <field name="name">Timesheet Generate Employee</field>
+            <field name="model">hr.timesheet.generate.employee</field>
+            <field name="arch" type="xml">
+                <form string="Timesheet Generate Employee">
+                    <header>
+                        <button icon="fa-cogs" string="Generate" name="compute_sheet" type="object" class="oe_highlight"  />
+                    </header>
+                    <group>
+                        <span>
+                            <div>
+                                This wizard will generate adjusts for all selected employee(s) based on the dates and credit note specified on Adjusts Run
+                            </div>
+                        </span>
+                        <field name="timesheet_id" invisible ="1" />
+                    </group>
+                    <group colspan="4" >
+                        <separator string="Employees" colspan="4"/>
+                        <newline/>
+                        <field name="employee_ids" nolabel="1"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_hr_timesheet_generate_employee" model="ir.actions.act_window">
+            <field name="name">Timesheet Generate Employee</field>
+            <field name="res_model">hr.timesheet.generate.employee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_timesheet_generate_employee_form_view"/>
+            <field name="domain">[]</field>
+        </record>
+
+    </data>
+</odoo>

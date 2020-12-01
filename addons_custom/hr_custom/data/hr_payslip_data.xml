@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="parameter_email_payroll" model="ir.config_parameter">
+            <field name="key">parameter_email_payroll</field>
+            <field name="value">Admin</field>
+        </record>
+
+        <record id="parameter_phone_payroll" model="ir.config_parameter">
+            <field name="key">parameter_phone_payroll</field>
+            <field name="value">12345678</field>
+        </record>
+
+        <record id="parameter_late_early" model="ir.config_parameter">
+            <field name="key">parameter_late_early</field>
+            <field name="value">10000</field>
+        </record>
+    </data>
+</odoo>

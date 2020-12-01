@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <!-- Chấm công-->
+        <record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!--Chấm công/Đăng nhập / Đăng xuất-->
+        <record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_my_attendances">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+         <!--Chấm công/Quản lý Vào/Ra-->
+        <record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_manage_attendances">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+         <!--Chấm công/Quản lý Vào/Ra/Chấm công-->
+        <record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_view_attendances">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!--Chấm công/Quản lý Vào/Ra/Nhân viên-->
+        <record model="ir.ui.menu" id="hr_attendance.menu_hr_attendance_view_employees_kanban">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ])]"/>
+        </record>
+
+        <!--Chấm công/Quản lý phân ca làm việc nhân viên-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_timesheet.menu_hr_shift">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+            <!--Chấm công/Quản lý phân ca làm việc nhân viên/Quản lý phân ca làm việc nhân viên-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_timesheet.menu_hr_shift_work_management">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Chấm công/Quản lý phân ca làm việc nhân viên/Cấu hình ca làm việc-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_timesheet.menu_hr_shift_define_conf">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+
+        <!--Chấm công/Quản lý phân ca làm việc nhân viên/Cấu hình ca làm việc/Định nghĩa ca làm việc-->
+        <record model="ir.ui.menu" id="l10n_vi_hr_timesheet.menu_hr_shift_define">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee')])]"/>
+        </record>
+    </data>
+</odoo>

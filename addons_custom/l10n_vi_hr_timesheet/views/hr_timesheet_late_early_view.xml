@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="hr_timesheet_late_early_tree_view" model="ir.ui.view">
+            <field name="name">hr_timesheet_late_early_tree_view</field>
+            <field name="model">hr.timesheet.late.early</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="type"/>
+                    <field name="state"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_timesheet_late_early_form_view" model="ir.ui.view">
+            <field name="name">hr_timesheet_late_early_form_view</field>
+            <field name="model">hr.timesheet.late.early</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,validate1,validate"/>
+                        <button name="action_validate1" type="object" string="Confirm" states="draft" class="oe_highlight"/>
+                        <button name="action_validate" type="object" string="Confirm" states="validate1" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id" required="1" attrs="{'readonly': [('state','!=','draft')]}"/>
+                                <field name="date" required="1" attrs="{'readonly': [('state','!=','draft')]}"/>
+                            </group>
+                            <group>
+                                <field name="type" attrs="{'readonly': [('state','!=','draft')]}"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_hr_timesheet_late_early">
+            <field name="name">Timesheet Late Early</field>
+            <field name="res_model">hr.timesheet.late.early</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_hr_timesheet_late_early" parent="hr_timesheet.menu_hr_time_tracking"
+                  string="Timesheet Late Early"
+                  action="action_hr_timesheet_late_early" sequence="51"/>
+    </data>
+</odoo>

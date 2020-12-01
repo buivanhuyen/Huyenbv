@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="hr_insurance_2018" model="hr.insurance.config">
+            <field name="name" eval="'Insurance Vietnam '+time.strftime('%Y')"/>
+            <field name="active" eval="True"/>
+            <field name="date_from" eval="time.strftime('%Y-%m-%d')" />
+            <field name="contribution_employee_social" eval="8"/>
+            <field name="contribution_company_social" eval="17"/>
+            <field name="contribution_employee_medical" eval="1.5"/>
+            <field name="contribution_company_medical" eval="3"/>
+            <field name="contribution_employee_unemployment" eval="1"/>
+            <field name="contribution_company_unemployment" eval="1"/>
+            <field name="contribution_employee_labor_accidents" eval="0"/>
+            <field name="contribution_company_labor_accidents" eval="0.5"/>
+            <field name="state" eval="'active'"/>
+        </record>
+
+    </data>
+</odoo>

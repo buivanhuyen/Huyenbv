@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <!-- Đi công trình       -->
+        <record id="parameter_support_constructor" model="ir.config_parameter">
+            <field name="key">parameter_support_constructor</field>
+            <field name="value">50000</field>
+        </record>
+        <record id="parameter_lunch" model="ir.config_parameter">
+            <field name="key">parameter_lunch</field>
+            <field name="value">10000</field>
+        </record>
+        <record id="parameter_overtime_weekdays" model="ir.config_parameter">
+            <field name="key">parameter_overtime_weekdays</field>
+            <field name="value">150</field>
+        </record>
+        <record id="parameter_overtime_weekend" model="ir.config_parameter">
+            <field name="key">parameter_overtime_weekend</field>
+            <field name="value">200</field>
+        </record>
+        <record id="parameter_overtime_holiday" model="ir.config_parameter">
+            <field name="key">parameter_overtime_holiday</field>
+            <field name="value">300</field>
+        </record>
+        <record id="parameter_overtime_shift_night" model="ir.config_parameter">
+            <field name="key">parameter_overtime_shift_night</field>
+            <field name="value">30</field>
+        </record>
+        <record id="parameter_ded_overtime_weekdays" model="ir.config_parameter">
+            <field name="key">parameter_ded_overtime_weekdays</field>
+            <field name="value">50</field>
+        </record>
+        <record id="parameter_ded_overtime_weekend" model="ir.config_parameter">
+            <field name="key">parameter_ded_overtime_weekend</field>
+            <field name="value">100</field>
+        </record>
+        <record id="parameter_ded_overtime_holiday" model="ir.config_parameter">
+            <field name="key">parameter_ded_overtime_holiday</field>
+            <field name="value">0</field>
+        </record>
+        <record id="parameter_limit_tax_personal" model="ir.config_parameter">
+            <field name="key">parameter_limit_tax_personal</field>
+            <field name="value">9000000</field>
+        </record>
+        <record id="parameter_limit_dependant" model="ir.config_parameter">
+            <field name="key">parameter_limit_dependant</field>
+            <field name="value">3600000</field>
+        </record>
+
+        <!-- CATEGORIES-->
+        <record id="OVERTIME" model="hr.salary.rule.category">
+            <field name="name">Làm thêm giờ</field>
+            <field name="code">OT</field>
+        </record>
+        <record id="TTDED" model="hr.salary.rule.category">
+            <field name="name">Tổng giảm trừ</field>
+            <field name="code">TTDED</field>
+        </record>
+        <record id="LTTTHD" model="hr.salary.rule.category">
+            <field name="name">Lương thực tế theo hợp đồng</field>
+            <field name="code">LTTTHD</field>
+        </record>
+        <record id="BHVN" model="hr.salary.rule.category">
+            <field name="name">Giảm bảo hiểm</field>
+            <field name="code">BHVN</field>
+        </record>
+
+
+        <!-- HR SALARY RULES-->
+        <!--        I.Gross-->
+        <record id="hr_rule_total_gross" model="hr.salary.rule">
+            <field name="name">Tổng thu nhập thực tế trong tháng</field>
+            <field name="sequence" eval="50"/>
+            <field name="code">GROSSMONTH</field>
+            <field name="category_id" ref="hr_payroll.GROSS"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.BASIC + categories.ALW + categories.OT</field>
+        </record>
+        <!--        I1.Gross-->
+        <record id="hr_rule_basic_real_total" model="hr.salary.rule">
+            <field name="name">Lương thực tế theo ngày công (LCB + Phụ cấp cố định)</field>
+            <field name="sequence" eval="10"/>
+            <field name="code">GROSSREAL</field>
+            <field name="category_id" ref="hr_payroll.BASIC"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'GROSSREAL':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_real_total_input" model="hr.rule.input">
+            <field name="name">Lương thực tế theo ngày công (LCB + Phụ cấp cố định)</field>
+            <field name="code">GROSSREAL</field>
+            <field name="input_id" ref="hr_rule_basic_real_total"/>
+        </record>
+        <!--       I1.PCCT -->
+        <record id="hr_rule_basic_allowance_constructor" model="hr.salary.rule">
+            <field name="name">Phụ cấp công trình</field>
+            <field name="sequence" eval="12"/>
+            <field name="code">PCCT</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'PCCT':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_allowance_constructor_input" model="hr.rule.input">
+            <field name="name">Phụ cấp công trình</field>
+            <field name="code">PCCT</field>
+            <field name="input_id" ref="hr_rule_basic_allowance_constructor"/>
+        </record>
+        <!--       I1.PCK -->
+        <record id="hr_rule_basic_allowance_other" model="hr.salary.rule">
+            <field name="name">Phụ cấp khác</field>
+            <field name="sequence" eval="13"/>
+            <field name="code">PCK</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'PCK':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_allowance_other_input" model="hr.rule.input">
+            <field name="name">Phụ cấp khác</field>
+            <field name="code">PCK</field>
+            <field name="input_id" ref="hr_rule_basic_allowance_other"/>
+        </record>
+        <!--       I1.CTHBHXH -->
+        <record id="hr_rule_basic_pay_social_insurance" model="hr.salary.rule">
+            <field name="name">Chi trả hộ BHXH</field>
+            <field name="sequence" eval="14"/>
+            <field name="code">CTHBHXH</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'CTHBHXH':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_pay_social_insurance_input" model="hr.rule.input">
+            <field name="name">Chi trả hộ BHXH</field>
+            <field name="code">CTHBHXH</field>
+            <field name="input_id" ref="hr_rule_basic_pay_social_insurance"/>
+        </record>
+        <!--       I1.Tong tien le + phep + che do -->
+        <record id="hr_rule_basic_total_policy" model="hr.salary.rule">
+            <field name="name">Tổng tiền lễ + phép + chế độ</field>
+            <field name="sequence" eval="15"/>
+            <field name="code">TTLPCD</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'TTLPCD':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_total_policy_input" model="hr.rule.input">
+            <field name="name">Tổng tiền lễ + phép + chế độ</field>
+            <field name="code">TTLPCD</field>
+            <field name="input_id" ref="hr_rule_basic_total_policy"/>
+        </record>
+        <!--       I1.Phụ cấp ca 3 -->
+        <record id="hr_rule_basic_allowance_shift_third" model="hr.salary.rule">
+            <field name="name">Phụ cấp ca 3</field>
+            <field name="sequence" eval="15"/>
+            <field name="code">PCC3</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'PCC3':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_allowance_shift_third_input" model="hr.rule.input">
+            <field name="name">Phụ cấp ca 3</field>
+            <field name="code">PCC3</field>
+            <field name="input_id" ref="hr_rule_basic_allowance_shift_third"/>
+        </record>
+        <!--       I1.Truy lĩnh/ Hỗ trợ khác -->
+        <record id="hr_rule_basic_other_revenue" model="hr.salary.rule">
+            <field name="name">Truy lĩnh/ Hỗ trợ khác</field>
+            <field name="sequence" eval="16"/>
+            <field name="code">HTK</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'HTK':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_other_revenue_input" model="hr.rule.input">
+            <field name="name">Truy lĩnh/ Hỗ trợ khác</field>
+            <field name="code">HTK</field>
+            <field name="input_id" ref="hr_rule_basic_other_revenue"/>
+        </record>
+        <!--       I1.Thành tiền tăng ca (đã quy đổi) -->
+        <record id="hr_rule_basic_total_overtime" model="hr.salary.rule">
+            <field name="name">Thành tiền tăng ca (đã quy đổi)</field>
+            <field name="sequence" eval="17"/>
+            <field name="code">TTTC</field>
+            <field name="category_id" ref="OVERTIME"/>
+            <field name="parent_rule_id" ref="hr_rule_total_gross"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'TTTC':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_basic_total_overtime_input" model="hr.rule.input">
+            <field name="name">Thành tiền tăng ca (đã quy đổi)</field>
+            <field name="code">TTTC</field>
+            <field name="input_id" ref="hr_rule_basic_total_overtime"/>
+        </record>
+
+
+        <!--        I.DEDUCTION-->
+        <record id="hr_rule_total_ded" model="hr.salary.rule">
+            <field name="name">Các khoản phải trừ</field>
+            <field name="sequence" eval="100"/>
+            <field name="code">DEDTOTAL</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.TTDED</field>
+        </record>
+        <!--       I1.Trừ cơm -->
+        <record id="hr_rule_deduction_lunch" model="hr.salary.rule">
+            <field name="name">Trừ cơm</field>
+            <field name="sequence" eval="80"/>
+            <field name="code">TC</field>
+            <field name="category_id" ref="TTDED"/>
+            <field name="parent_rule_id" ref="hr_rule_total_ded"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'TC':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_deduction_lunch_input" model="hr.rule.input">
+            <field name="name">Trừ cơm</field>
+            <field name="code">TC</field>
+            <field name="input_id" ref="hr_rule_deduction_lunch"/>
+        </record>
+        <!--       I1.Trừ BHXH -->
+        <record id="hr_rule_deduction_insurance" model="hr.salary.rule">
+            <field name="name">Trừ BHXH (10.5%)</field>
+            <field name="sequence" eval="95"/>
+            <field name="code">TBHXH</field>
+            <field name="category_id" ref="TTDED"/>
+            <field name="parent_rule_id" ref="hr_rule_total_ded"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.BHVN
+            </field>
+        </record>
+
+        <record id="hr_rule_deduction_insurance_social" model="hr.salary.rule">
+            <field name="name">BHXH</field>
+            <field name="sequence" eval="93"/>
+            <field name="code">BHXH</field>
+            <field name="category_id" ref="BHVN"/>
+            <field name="parent_rule_id" ref="hr_rule_deduction_insurance"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.x_salary * contract.x_contribution_employee_social/100
+            </field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3383"/>
+        </record>
+        <record id="hr_rule_deduction_insurance_medical" model="hr.salary.rule">
+            <field name="name">BHYT</field>
+            <field name="sequence" eval="92"/>
+            <field name="code">BHYT</field>
+            <field name="category_id" ref="BHVN"/>
+            <field name="parent_rule_id" ref="hr_rule_deduction_insurance"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.x_salary * contract.x_contribution_employee_medical/100
+            </field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3384"/>
+        </record>
+        <record id="hr_rule_deduction_insurance_unemployee" model="hr.salary.rule">
+            <field name="name">BHTN</field>
+            <field name="sequence" eval="91"/>
+            <field name="code">BHTN</field>
+            <field name="category_id" ref="BHVN"/>
+            <field name="parent_rule_id" ref="hr_rule_deduction_insurance"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.x_salary * contract.x_contribution_employee_unemployment/100
+            </field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3386"/>
+        </record>
+        <record id="hr_rule_deduction_insurance_labor" model="hr.salary.rule">
+            <field name="name">BHTNLD</field>
+            <field name="sequence" eval="90"/>
+            <field name="code">BHTNLD</field>
+            <field name="category_id" ref="BHVN"/>
+            <field name="parent_rule_id" ref="hr_rule_deduction_insurance"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.x_salary * contract.x_contribution_employee_labor_accidents/100
+            </field>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3386"/>
+        </record>
+
+        <!--       I1.Trừ đi muộn  -->
+        <record id="hr_rule_deduction_late" model="hr.salary.rule">
+            <field name="name">Đi muộn</field>
+            <field name="sequence" eval="83"/>
+            <field name="code">DM</field>
+            <field name="category_id" ref="TTDED"/>
+            <field name="parent_rule_id" ref="hr_rule_total_ded"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'DM':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_deduction_late_input" model="hr.rule.input">
+            <field name="name">Đi muộn</field>
+            <field name="code">DM</field>
+            <field name="input_id" ref="hr_rule_deduction_late"/>
+        </record>
+        <!--       I1.Trừ tạm ứng  -->
+        <record id="hr_rule_deduction_advance_payment" model="hr.salary.rule">
+            <field name="name">Tạm ứng</field>
+            <field name="sequence" eval="84"/>
+            <field name="code">TU</field>
+            <field name="category_id" ref="TTDED"/>
+            <field name="parent_rule_id" ref="hr_rule_total_ded"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'TU':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_deduction_advance_payment_input" model="hr.rule.input">
+            <field name="name">Tạm ứng</field>
+            <field name="code">TU</field>
+            <field name="input_id" ref="hr_rule_deduction_advance_payment"/>
+        </record>
+        <!--       I1.Trừ Thuế TNCN( tạm tính)  -->
+        <record id="hr_rule_deduction_tax_personal" model="hr.salary.rule">
+            <field name="name">Thuế TNCN( tạm tính)</field>
+            <field name="sequence" eval="85"/>
+            <field name="account_debit" ref="l10n_vn.chart3341"/>
+            <field name="account_credit" ref="l10n_vn.chart3335"/>
+            <field name="code">TTNCN</field>
+            <field name="category_id" ref="TTDED"/>
+            <field name="parent_rule_id" ref="hr_rule_total_ded"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+total = 0
+for line in payslip.input_line_ids:
+    if line.code == 'TTNCN':
+        total = line.amount
+        break
+result = total
+            </field>
+        </record>
+        <record id="hr_rule_deduction_tax_personal_input" model="hr.rule.input">
+            <field name="name">Thuế TNCN</field>
+            <field name="code">TTNCN</field>
+            <field name="input_id" ref="hr_rule_deduction_tax_personal"/>
+        </record>
+
+
+        <!--    I.NET-->
+        <record id="hr_rule_total_net" model="hr.salary.rule">
+            <field name="name">Tổng thực lĩnh</field>
+            <field name="sequence" eval="200"/>
+            <field name="code">NETTOTAL</field>
+            <field name="category_id" ref="hr_payroll.NET"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = categories.GROSS - categories.DED</field>
+            <field name="account_debit" ref="l10n_vn.chart6421"/>
+            <field name="account_credit" ref="l10n_vn.chart3341"/>
+        </record>
+
+
+        <!-- CAU TRUC LUONG 2020 -->
+        <record id="hr_payroll_salary_structure_nesta_2020" model="hr.payroll.structure">
+            <field name="code">NESTA2020</field>
+            <field name="name">NESTA SALARY 2020</field>
+            <field eval="[(6, 0, [
+            ref('hr_rule_total_gross'),
+            ref('hr_rule_total_ded'),
+            ref('hr_rule_total_net'),
+        ])]" name="rule_ids"/>
+            <field name="company_id" ref="base.main_company"/>
+        </record>
+
+
+    </data>
+</odoo>

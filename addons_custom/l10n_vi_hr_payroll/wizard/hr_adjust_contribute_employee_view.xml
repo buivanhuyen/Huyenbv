@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Tao dieu chinh hang loat-->
+        <record id="view_hr_insurance_by_employees" model="ir.ui.view">
+            <field name="name">hr_insurance_by_employees</field>
+            <field name="model">hr.insurance.employees</field>
+            <field name="arch" type="xml">
+                <form string="Insurance by Employees">
+                    <header>
+                        <button icon="fa-cogs" string="Generate" name="compute_sheet" type="object" class="oe_highlight"  />
+                    </header>
+                    <group>
+                        <span>
+                            <div>
+                                This wizard will generate adjusts for all selected employee(s) based on the dates and credit note specified on Adjusts Run.
+                            </div>
+                        </span>
+                        <field name="contribute_id" invisible ="1" />
+                    </group>
+                    <group colspan="4" >
+                        <separator string="Employees" colspan="4"/>
+                        <newline/>
+                        <field name="employee_ids" nolabel="1"/>
+                    </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_hr_insurance_by_employees" model="ir.actions.act_window">
+            <field name="name">Generate Adjust</field>
+            <field name="res_model">hr.insurance.employees</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_insurance_by_employees"/>
+            <field name="domain">[]</field>
+            <field name="context">{'readonly_by_pass':True}</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+# -*- coding: utf-8 -*-
+{
+    'name': "l10n_vi_hr_payroll",
+    'summary': """
+       """,
+    'description': """
+    
+    """,
+    'author': "",
+    'website': "",
+    'category': 'Uncategorized',
+    'version': '0.1',
+    'depends': ['base', 'mail', 'hr', 'hr_contract', 'hr_payroll', 'l10n_vn', 'hr_timesheet', 'hr_holidays',
+                'hr_attendance',
+                'hr_recruitment', 'hr_payroll_account', 'resource'],
+    'data': [
+        # 'data/hr_holidays_data.xml',
+        'data/hr_config_parameter_data.xml',
+        'security/l10n_vi_hr_security_view.xml',
+        'data/hr_insurance_data.xml',
+        # 'data/working_time_data.xml',
+        'data/hr_income_tax_data.xml',
+        'data/l10n_vi_hr_payroll_data.xml',
+        'views/hr_job_view.xml',
+        'views/hr_employee_view.xml',
+        'views/hr_department_view.xml',
+        'views/hr_applicant_view.xml',
+        'views/hr_personal_income_tax_view.xml',
+        'wizard/hr_adjust_contribute_employee_view.xml',
+        'views/hr_insurance_view.xml',
+        'views/hr_contract_view.xml',
+        # 'views/hr_holiday_view.xml',
+        'views/hr_payslip_view.xml',
+        'data/hr_timesheet_data.xml',
+        'views/hr_timesheet_view.xml',
+        'wizard/hr_timesheet_generate_employee_view.xml',
+        # 'security/l10n_vi_hr_security_view.xml',
+        # 'security/ir.model.access.csv',
+    ],
+}

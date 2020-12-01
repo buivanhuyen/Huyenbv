@@ -1,0 +1,745 @@
+<odoo>
+    <data>
+        <template id="report_payroll_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            *{
+                            padding:0;
+                            margin:0;
+                            }
+                            .wrapper1{
+                            width:1000px;
+                            height:auto;
+                            margin:auto;
+                            }
+                            .header1{
+                            text-align: center;
+                            }
+                        </style>
+
+                        <div class="wrapper1">
+                            <div style="page-break-after: auto;">
+                                <div class="header1">
+                                    <h4>CÔNG TY CỔ PHẦN THH DECOR</h4>
+                                    <h4 style="margin-top: 5px;">BẢNG CHI TIẾT LƯƠNG THÁNG</h4>
+                                </div>
+                                <div class="content" style="margin-top: 20px;">
+                                    <table style="margin-top:10px;page-break-inside: avoid;"
+                                           t-foreach="o.lines" t-as="l">
+                                        <tr style="font-size:20px;">
+                                            <td>Họ và tên</td>
+                                            <td colspan="2" style="text-align: center;">
+                                                <span t-field="l.employee_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td>Mã nhân viên</td>
+                                            <td colspan="2" style="text-align: center;">
+                                                <span t-field="l.employee_id.x_code"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="width: 200px;"></td>
+                                            <td style="width: 600px;"></td>
+                                            <td style="width: 190px;"></td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                I=(1)+(2)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Tổng thu nhập thỏa
+                                                thuận (Gross)
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-field="l.total_gross_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">1</td>
+                                            <td style="border-right: solid 1px;">Lương cơ bản</td>
+                                            <td>
+                                                <span t-field="l.basic_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">2</td>
+                                            <td style="border-right: solid 1px;">PC cố định</td>
+                                            <td>
+                                                <span t-field="l.allowance_fix_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">3</td>
+                                            <td style="border-right: solid 1px;">PC khác</td>
+                                            <td>
+                                                <span t-field="l.allowance_other_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                II
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Công trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;"></td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">3</td>
+                                            <td style="border-right: solid 1px;">Ngày công thực tế chưa quy đổi</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.standard_workday"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="compensation" t-value="0"/>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">4</td>
+                                            <td style="border-right: solid 1px;">Bù công (ngày)</td>
+                                            <td>
+                                                <span t-esc="compensation"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">5</td>
+                                            <td style="border-right: solid 1px;">Ngày công thực tế (đã quy đổi bao gồm
+                                                phép + chế độ)
+                                            </td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.real_workday"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">6</td>
+                                            <td style="border-right: solid 1px;">Ngày lễ</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_holiday_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">7</td>
+                                            <td style="border-right: solid 1px;">Ngày phép</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_allow_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">8</td>
+                                            <td style="border-right: solid 1px;">Ngày chế độ/Thai sản</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_maternity_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">9</td>
+                                            <td style="border-right: solid 1px;">Nghỉ ốm</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_sick_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">10</td>
+                                            <td style="border-right: solid 1px;">Nghỉ không lương</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_unpaid_leave"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="exchange" t-value="0"/>
+                                        <t t-set="total_qty"
+                                           t-value="l.timesheet_line_id.hour_overtime_weekdays + l.timesheet_line_id.hour_overtime_weekend +l.timesheet_line_id.hour_overtime_holidays+l.timesheet_line_id.hour_overtime_shift3"/>
+
+                                        <t t-set="ot_month" t-value="total_qty + exchange"/>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                III
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Tăng ca trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="ot_month"></span>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">11</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca trong tháng</td>
+                                            <td>
+                                                <span t-esc="total_qty"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">12</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca (cần quy đổi bù
+                                                công)
+                                            </td>
+                                            <td>
+                                                <span t-esc="exchange"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">13</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca (sau khi đã quy đổi bù
+                                                công)
+                                            </td>
+                                            <td>
+                                                <span t-esc="exchange"/>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <t t-set="total_real_month"
+                                               t-value="l.allowance_fix_contract + l.basic_contract+l.allowance_other_real+l.total_overtime_salary+l.allowance_constructor_real+l.sickness_by_social+l.holiday_pay+l.allowance_shift_night+l.other_revenue"/>
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                III=(14)+(15)+(16)+(17)+(18)+(19)+(20)+(21)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7; ">Tổng thu nhập thực
+                                                tế trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(total_real_month)"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="salary_real" t-value="l.allowance_fix_contract + l.basic_contract"/>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">14</td>
+                                            <td style="border-right: solid 1px;">Lương thực tế theo ngày công (LCB+phụ
+                                                cấp cố định)
+                                            </td>
+                                            <td>
+                                                <span t-esc="salary_real"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">15</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp khác</td>
+                                            <td>
+                                                <span t-field="l.allowance_other_real"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">16</td>
+                                            <td style="border-right: solid 1px;">Tính tiền tăng ca (đã quy đổi)</td>
+                                            <td>
+                                                <span t-esc="round(l.total_overtime_salary)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">17</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp công trình</td>
+                                            <td>
+                                                <span t-field="l.allowance_constructor_real"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">18</td>
+                                            <td style="border-right: solid 1px;">Chi trả bảo hiểm xã hội</td>
+                                            <td>
+                                                <span t-field="l.sickness_by_social"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">19</td>
+                                            <td style="border-right: solid 1px;">Tổng tiền lễ + phép + chế độ</td>
+                                            <td>
+                                                <span t-esc="round(l.holiday_pay)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">20</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp ca 3</td>
+                                            <td>
+                                                <span t-field="l.allowance_shift_night"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+
+                                            <td style="text-align: center;border-right: solid 1px;">21</td>
+                                            <td style="border-right: solid 1px;">Truy lĩnh/Hộ trợ khác</td>
+                                            <td>
+                                                <span t-field="l.other_revenue"/>
+                                            </td>
+                                        </tr>
+
+                                        <t t-set="total_minus"
+                                           t-value="l.total_insurance+l.total_lunch+l.total_mulct +l.advance_payment+l.total_tax_personal"/>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background:#E0F8F7;">
+                                                IV=(22)+(21)+(22)+(23)+(24)+(25)+(26)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Các khoản phải
+                                                trừ
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(total_minus) "/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">22</td>
+                                            <td style="border-right: solid 1px;">Trừ BHXH (10.5%)</td>
+                                            <td>
+                                                <span t-field="l.total_insurance"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">23</td>
+                                            <td style="border-right: solid 1px;">Trừ cơm</td>
+                                            <td>
+                                                <span t-field="l.total_lunch"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">24</td>
+                                            <td style="border-right: solid 1px;">Đi muộn</td>
+                                            <td>
+                                                <span t-esc="round(l.total_mulct)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">25</td>
+                                            <td style="border-right: solid 1px;">Tạm ứng</td>
+                                            <td>
+                                                <span t-esc="round(l.advance_payment)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">26</td>
+                                            <td style="border-right: solid 1px;">Thuế TNCN (tạm tính)</td>
+                                            <td>
+                                                <span t-esc="round(l.total_tax_personal)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                V =
+                                                (III)-(IV)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Thực nhận</td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(l.total_net)"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="footter">
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>Ghi chú</i>
+                                        </b>
+                                    </p>
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>
+                                                <span t-esc="o.get_email_info()"/>
+                                            </i>
+                                        </b>
+                                    </p>
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>
+                                                <span t-esc="o.get_phone_info()"/>
+                                            </i>
+                                        </b>
+                                    </p>
+                                    <p style="font-size:20px;">Trân trọng cám ơn!</p>
+                                    <p style="font-size:20px;">Phòng hành chính nhân sự</p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_payroll_line_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="l">
+                    <t t-call="web.basic_layout">
+                        <style>
+                            *{
+                            padding:0;
+                            margin:0;
+                            }
+                            .wrapper1{
+                            width:1000px;
+                            height:auto;
+                            margin:auto;
+                            }
+                            .header1{
+                            text-align: center;
+                            }
+                        </style>
+
+                        <div class="wrapper1">
+                            <div style="page-break-after: auto;">
+                                <div class="header1">
+                                    <h4>CÔNG TY CỔ PHẦN THH DECOR</h4>
+                                    <h4 style="margin-top: 5px;">BẢNG CHI TIẾT LƯƠNG THÁNG</h4>
+                                </div>
+                                <div class="content" style="margin-top: 20px;">
+                                    <table>
+
+
+                                        <tr style="font-size:20px;">
+                                            <td>Họ và tên</td>
+                                            <td colspan="2" style="text-align: center;">
+                                                <span t-field="l.employee_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td>Mã nhân viên</td>
+                                            <td colspan="2" style="text-align: center;">
+                                                <span t-field="l.employee_id.x_code"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="width: 200px;"></td>
+                                            <td style="width: 600px;"></td>
+                                            <td style="width: 190px;"></td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                I=(1)+(2)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Tổng thu nhập thỏa
+                                                thuận (Gross)
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-field="l.total_gross_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">1</td>
+                                            <td style="border-right: solid 1px;">Lương cơ bản</td>
+                                            <td>
+                                                <span t-field="l.basic_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">2</td>
+                                            <td style="border-right: solid 1px;">PC cố định</td>
+                                            <td>
+                                                <span t-field="l.allowance_fix_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">3</td>
+                                            <td style="border-right: solid 1px;">PC khác</td>
+                                            <td>
+                                                <span t-field="l.allowance_other_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                II
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Công trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;"></td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">3</td>
+                                            <td style="border-right: solid 1px;">Ngày công thực tế chưa quy đổi</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.standard_workday"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="compensation" t-value="0"/>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">4</td>
+                                            <td style="border-right: solid 1px;">Bù công (ngày)</td>
+                                            <td>
+                                                <span t-esc="compensation"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">5</td>
+                                            <td style="border-right: solid 1px;">Ngày công thực tế (đã quy đổi bao gồm
+                                                phép + chế độ)
+                                            </td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.real_workday"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">6</td>
+                                            <td style="border-right: solid 1px;">Ngày lễ</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_holiday_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">7</td>
+                                            <td style="border-right: solid 1px;">Ngày phép</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_allow_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">8</td>
+                                            <td style="border-right: solid 1px;">Ngày chế độ/Thai sản</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_maternity_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">9</td>
+                                            <td style="border-right: solid 1px;">Nghỉ ốm</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_sick_leave"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">10</td>
+                                            <td style="border-right: solid 1px;">Nghỉ không lương</td>
+                                            <td>
+                                                <span t-field="l.timesheet_line_id.number_unpaid_leave"/>
+                                            </td>
+                                        </tr>
+                                        <t t-set="exchange" t-value="0"/>
+                                        <t t-set="total_qty"
+                                           t-value="l.timesheet_line_id.hour_overtime_weekdays + l.timesheet_line_id.hour_overtime_weekend +l.timesheet_line_id.hour_overtime_holidays+l.timesheet_line_id.hour_overtime_shift3"/>
+
+                                        <t t-set="ot_month" t-value="total_qty + exchange"/>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                III
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Tăng ca trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="ot_month"></span>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">11</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca trong tháng</td>
+                                            <td>
+                                                <span t-esc="total_qty"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">12</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca (cần quy đổi bù
+                                                công)
+                                            </td>
+                                            <td>
+                                                <span t-esc="exchange"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">13</td>
+                                            <td style="border-right: solid 1px;">Tổng giờ tăng ca (sau khi đã quy đổi bù
+                                                công)
+                                            </td>
+                                            <td>
+                                                <span t-esc="exchange"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <t t-set="total_real_month"
+                                               t-value="l.allowance_fix_contract + l.basic_contract+l.allowance_other_real+l.total_overtime_salary+l.allowance_constructor_real+l.sickness_by_social+l.holiday_pay+l.allowance_shift_night+l.other_revenue"/>
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                III=(14)+(15)+(16)+(17)+(18)+(19)+(20)+(21)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7; ">Tổng thu nhập thực
+                                                tế trong tháng
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(total_real_month)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">14</td>
+                                            <td style="border-right: solid 1px;">Lương thực tế theo ngày công (LCB+phụ
+                                                cấp cố định)
+                                            </td>
+                                            <td>
+                                                <span t-esc="l.allowance_fix_contract + l.basic_contract"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">15</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp khác</td>
+                                            <td>
+                                                <span t-field="l.allowance_other_real"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">16</td>
+                                            <td style="border-right: solid 1px;">Tính tiền tăng ca (đã quy đổi)</td>
+                                            <td>
+                                                <span t-esc="round(l.total_overtime_salary)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">17</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp công trình</td>
+                                            <td>
+                                                <span t-field="l.allowance_constructor_real"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">18</td>
+                                            <td style="border-right: solid 1px;">Chi trả bảo hiểm xã hội</td>
+                                            <td>
+                                                <span t-field="l.sickness_by_social"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">19</td>
+                                            <td style="border-right: solid 1px;">Tổng tiền lễ + phép + chế độ</td>
+                                            <td>
+                                                <span t-esc="round(l.holiday_pay)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">20</td>
+                                            <td style="border-right: solid 1px;">Phụ cấp ca 3</td>
+                                            <td>
+                                                <span t-field="l.allowance_shift_night"/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+
+                                            <td style="text-align: center;border-right: solid 1px;">21</td>
+                                            <td style="border-right: solid 1px;">Truy lĩnh/Hộ trợ khác</td>
+                                            <td>
+                                                <span t-field="l.other_revenue"/>
+                                            </td>
+                                        </tr>
+
+                                        <t t-set="total_minus"
+                                           t-value="l.total_insurance+l.total_lunch+l.total_mulct +l.advance_payment+l.total_tax_personal"/>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background:#E0F8F7;">
+                                                IV=(22)+(21)+(22)+(23)+(24)+(25)+(26)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Các khoản phải
+                                                trừ
+                                            </td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(total_minus) "/>
+                                            </td>
+                                        </tr>
+
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">22</td>
+                                            <td style="border-right: solid 1px;">Trừ BHXH (10.5%)</td>
+                                            <td>
+                                                <span t-field="l.total_insurance"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">23</td>
+                                            <td style="border-right: solid 1px;">Trừ cơm</td>
+                                            <td>
+                                                <span t-field="l.total_lunch"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">24</td>
+                                            <td style="border-right: solid 1px;">Đi muộn</td>
+                                            <td>
+                                                <span t-esc="round(l.total_mulct)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">25</td>
+                                            <td style="border-right: solid 1px;">Tạm ứng</td>
+                                            <td>
+                                                <span t-esc="round(l.advance_payment)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;">26</td>
+                                            <td style="border-right: solid 1px;">Thuế TNCN (tạm tính)</td>
+                                            <td>
+                                                <span t-esc="round(l.total_tax_personal)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight: bold;font-size:20px;">
+                                            <td style="text-align: center;border-right: solid 1px;background: #E0F8F7;">
+                                                V =
+                                                (III)-(IV)
+                                            </td>
+                                            <td style="border-right: solid 1px;background: #E0F8F7;">Thực nhận</td>
+                                            <td style="background: #E0F8F7;">
+                                                <span t-esc="round(l.total_net)"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="footter">
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>Ghi chú</i>
+                                        </b>
+                                    </p>
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>Mọi thắc mắc liên quan đến kỳ lương vui lòng gửi về địa chỉ email
+                                                <span t-esc="l.get_email_info()"/>
+                                            </i>
+                                        </b>
+                                    </p>
+                                    <p>
+                                        <b style="font-size:20px;">
+                                            <i>SDT:
+                                                <span t-esc="l.get_email_info()"/>
+                                            </i>
+                                        </b>
+                                    </p>
+                                    <p style="font-size:20px;">Trân trọng cám ơn!</p>
+                                    <p style="font-size:20px;">Phòng hành chính nhân sự</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <report id="report_payroll"
+                string="Print Payroll"
+                model="hr.payroll"
+                report_type="qweb-pdf"
+                name="izi_hr_nesta_custom.report_payroll_template"
+                file="izi_hr_nesta_custom.report_payroll_template"
+        />
+
+        <report id="report_payroll_line"
+                string="Print Payroll"
+                model="hr.payroll.line"
+                report_type="qweb-pdf"
+                paperformat="izi_hr_nesta_custom.paperformat_stock_picking_incoming_report"
+                name="izi_hr_nesta_custom.report_payroll_line_template"
+                file="izi_hr_nesta_custom.report_payroll_line_template"
+        />
+
+        <record id="paperformat_stock_picking_incoming_report" model="report.paperformat">
+            <field name="name">Incoming A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">3</field>
+            <field name="dpi">90</field>
+        </record>
+    </data>
+</odoo>

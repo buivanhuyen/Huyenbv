@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Menuitem-->
+    <menuitem id="menu_update_input_root" name="Payslips Other" parent="hr_payroll.menu_hr_payroll_root" sequence="10"/>
+
+    <!-- payslip -->
+    <record id="hr_payslipt_inherit_view_hr_payslip_form" model="ir.ui.view">
+        <field name="name">hr.payslip.form</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+
+            <field name="worked_days_line_ids" position="replace">
+                <field name="worked_days_line_ids">
+                    <tree string="Worked Days" editable="bottom" decoration-danger="code=='DED_INCOME_TAX'">
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="number_of_days" sum="Total Working Days"/>
+                        <field name="number_of_hours"/>
+                        <field name="number_of_minutes"/>
+                        <field name="number_of_count"/>
+                        <field name="contract_id"/>
+                        <field name="sequence" invisible="True"/>
+                    </tree>
+                    <form string="Worked Day">
+                        <group col="4">
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="sequence"/>
+                            <field name="number_of_days"/>
+                            <field name="number_of_hours"/>
+                            <field name="number_of_minutes"/>
+                            <field name="number_of_count"/>
+                            <field name="contract_id"/>
+                        </group>
+                    </form>
+                </field>
+            </field>
+        </field>
+    </record>
+
+    <!--Cap nhat payslip-->
+    <record id="hr_payslip_updateinput_form_view" model="ir.ui.view">
+        <field name="name">Payslip Update Input</field>
+        <field name="model">hr.payslip.update.input</field>
+        <field name="arch" type="xml">
+            <form string="Payslip Update Input">
+                <header>
+                    <button name="action_generate_payslip" type="object" states="draft"
+                            string="Generate Payslip" class="oe_highlight"/>
+                    <button type="object" name="action_import" string="Import"
+                            class="oe_highlight"
+                            attrs="{'invisible':[('file_binary', '=', False),('state','in',['draft','imported','confirm'])]}"/>
+                    <button name="action_download" type="object" states="draft"
+                            string="Download" class="oe_highlight"/>
+                    <button name="action_confirm" type="object" states="imported"
+                            string="Confirm" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,imported,confirm"
+                           readonly="1"/>
+                </header>
+                <div class="oe_title">
+                    <label for="name" class="oe_edit_only"/>
+                    <h1>
+                        <field name="name" placeholder="Input Payslips for December" required="True"/>
+                    </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="run_id" required="1"/>
+                        <field name="date_from" required="1"/>
+
+                    </group>
+                    <group>
+                        <field name="structure_id" required="1"/>
+                        <field name="date_to" required="1"/>
+                    </group>
+                </group>
+                <notebook>
+                    <page name="timsheet" string="Details Input">
+                        <field name="file_binary_name" invisible="True"/>
+                        <field name="file_binary" filename="file_binary_name"/>
+                        <field name="lines">
+                            <tree editable="1">
+                                <field name="employee_id" required="1"/>
+                                <field name="payslip_id" required="1"/>
+                                <field name="result" readonly="1"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="employee_id" required="1"/>
+                                        <field name="payslip_id" required="1"/>
+                                    </group>
+                                    <group>
+                                        <field name="result" readonly="1"/>
+                                    </group>
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+    <record id="hr_payslip_updateinput_tree_view" model="ir.ui.view">
+        <field name="name">Payslip Update Input</field>
+        <field name="model">hr.payslip.update.input</field>
+        <field name="arch" type="xml">
+            <tree string="Payslip Update Input">
+                <field name="name"/>
+                <field name="date_from"/>
+                <field name="date_to"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="action_hr_payslip_updateinput" model="ir.actions.act_window">
+        <field name="name">Payslip Update Input</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.payslip.update.input</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_hr_payslip_updateinput" parent="menu_update_input_root"
+              action="action_hr_payslip_updateinput" sequence="15"/>
+</odoo>

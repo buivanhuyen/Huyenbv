@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="contract_nesta_inherited_hr_contract_view_form" model="ir.ui.view">
+            <field name="name">Contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="l10n_vi_hr_payroll.inherited_hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook//page[@name='allowance']" position="replace">
+                    <page string="Allowance" name="allowance">
+                        <group>
+                            <group>
+                                <field name="x_allowance_fix"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="x_allowance_travel"/>
+                                <field name="x_allowance_toxic"/>
+                                <field name="x_allowance_technique"/>
+                                <field name="x_allowance_telephone"/>
+                                <field name="x_allowance_diligence"/>
+                            </group>
+                            <group>
+                                <field name="x_ratio_travel"/>
+                                <field name="x_ratio_toxic"/>
+                                <field name="x_allowance_responsibility"/>
+                                <field name="x_allowance_dwelling_house"/>
+                                <field name="x_allowance_other"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

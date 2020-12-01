@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <!-- Nhân viên-->
+        <record model="ir.ui.menu" id="hr.menu_hr_root">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_employee'),
+                   ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee')])]"/>
+        </record>
+
+        <!-- Nhân viên / Phòng ban-->
+        <record model="ir.ui.menu" id="hr.menu_hr_department_tree">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+
+        <!-- Nhân viên / Hợp đồng-->
+        <record model="ir.ui.menu" id="hr_contract.hr_menu_contract">
+            <field name="groups_id"
+                   eval="[(6,0,[ref('res_permissions.group_manager_employee'),
+                   ref('res_permissions.group_leader_employee'),
+                   ref('res_permissions.group_employee')])]"/>
+        </record>
+    </data>
+</odoo>

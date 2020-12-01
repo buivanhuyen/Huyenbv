@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <!-- Holidays: Allocation Request -->
+    <record id="inherited_hr_holidays_edit_holiday_new" model="ir.ui.view">
+        <field name="name">Leave Request</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+        <field name="arch" type="xml">
+            <field name="employee_id" position="replace">
+                <field name="employee_id"
+                       attrs="{'required':[('holiday_type','=','employee')],'invisible':[('holiday_type','in',['category','department'])]}"
+                       groups="hr_holidays.group_hr_holidays_user"/>
+                <field name="department_ids" widget="many2many_tags"
+                       attrs="{'required':[('holiday_type','=','department')],'invisible':[('holiday_type','in',['category','employee'])]}"
+                       groups="hr_holidays.group_hr_holidays_user"/>
+            </field>
+
+            <field name="category_id" position="replace">
+                <field name="category_id"
+                       attrs="{'required':[('holiday_type','=','category')], 'readonly': [('type', '=', 'remove'),('state','!=','draft'), ('state','!=','confirm')], 'invisible':[('holiday_type','in',['employee','department'])]}"/>
+            </field>
+            <field name="holiday_status_id" position="before">
+                <field name="manager_id" readonly="False"
+                       attrs="{'required': [('type','=','remove')], 'invisible': [('type','=','add')]}"/>
+            </field>
+            <button name="action_confirm" position="replace">
+                <button string="Sent Manager" name="action_confirm" states="draft" type="object" class="oe_highlight"/>
+            </button>
+        </field>
+    </record>
+
+
+</odoo>

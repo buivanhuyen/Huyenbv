@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="inherited_hr_contract_view_form" model="ir.ui.view">
+            <field name="name">Contract</field>
+            <field name="model">hr.contract</field>
+            <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook//page//group//group//div[@name='wage']" position="after">
+                    <field name="x_standard_work"/>
+                </xpath>
+                <xpath expr="//notebook//page[@name='information']" position="after">
+                    <page string="Insurance" name="insurance">
+                        <group>
+                            <group string="Insurance premiums">
+                                <field name="x_salary"/>
+                                <field name="x_start_date"/>
+                            </group>
+                            <group string="Social Insurance">
+                                <field name="x_contribution_employee_social"/>
+                                <field name="x_contribution_company_social"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Medical Insurance">
+                                <field name="x_contribution_employee_medical"/>
+                                <field name="x_contribution_company_medical"/>
+                            </group>
+                            <group string="Unemployment Insurance">
+                                <field name="x_contribution_employee_unemployment"/>
+                                <field name="x_contribution_company_unemployment"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Labor accidents">
+                                <field name="x_contribution_employee_labor_accidents"/>
+                                <field name="x_contribution_company_labor_accidents"/>
+                            </group>
+                        </group>
+                        <separator string="History Details"/>
+                        <field name="line_ids">
+                            <tree name="Details" readonly="1">
+                                <field name="contribution_salary"/>
+                                <field name="contribution_employee_social"/>
+                                <field name="contribution_employee_medical"/>
+                                <field name="contribution_employee_unemployment"/>
+                                <field name="contribution_company_social"/>
+                                <field name="contribution_company_medical"/>
+                                <field name="contribution_company_unemployment"/>
+                                <field name="date"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Allowance" name="allowance">
+                        <group>
+                            <group>
+                                <field name="x_allowance_lunch"/>
+                                <field name="x_allowance_travel_comm"/>
+                            </group>
+                            <group>
+                                <field name="x_allowance_housing"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Work License" name="work license">
+                        <group>
+                            <group>
+                                <field name="x_num_visa"/>
+                                <field name="x_finish_date_visa"/>
+                            </group>
+                            <group>
+                                <field name="x_num_work_license"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!--Phan quyen nhin hop dong lao dong-->
+        <record id="hr_contract.hr_menu_contract" model="ir.ui.menu">
+            <field name="groups_id" eval="[(6,0,[ref('l10n_vi_hr_payroll.group_security_contract')])]"/>
+        </record>
+
+        <menuitem
+                id="hr_contract.hr_menu_contract"
+                name="Contracts"
+                action="hr_contract.action_hr_contract"
+                parent="hr.menu_hr_root"
+                sequence="4"
+                groups="l10n_vi_hr_payroll.group_security_contract"/>
+    </data>
+</odoo>

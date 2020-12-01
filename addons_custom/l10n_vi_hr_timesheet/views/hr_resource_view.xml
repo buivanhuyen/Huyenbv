@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="l10n_vi_hr_inherit_resource_calendar_form" model="ir.ui.view">
+            <field name="name">resource.calendar.form</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"/>
+            <field name="arch" type="xml">
+                <field name="attendance_ids" position="replace">
+                    <field name="attendance_ids">
+                        <tree editable="1">
+                            <field name="name"/>
+                            <field name="dayofweek"/>
+                            <field name="hour_from" widget="float_time"/>
+                            <field name="hour_to" widget="float_time"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="day_period_id" required="1" options="{'no_create': True}"/>
+                        </tree>
+                    </field>
+                </field>
+                <field name="global_leave_ids" position="before">
+                    <field name="file_binary" filename="file_binary_name" state="draft"/>
+                    <field name="file_binary_name" invisible="True"/>
+                    <button name="download_template_leave" type="object" string="Download Template Leaves"
+                            class="btn btn-link" style="text-decoration: underline;"
+                            help="Mẫu import có định dạng là xls hoặc xlsx"
+                            icon="fa-arrow-circle-down"/>
+                    <button name="action_import_leave" type="object" string="Import"
+                            class="oe_highlight"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
